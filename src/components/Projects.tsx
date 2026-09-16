@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { PROJECTS, PROJECT_CATEGORIES, type Project } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
@@ -143,7 +142,6 @@ export default function Projects() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="code-label">// projects</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Selected Work</h2>
           <p className="mt-4 max-w-2xl text-muted text-lg">
             Real projects with real code — from automated flight tracking to AI document
