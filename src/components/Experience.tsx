@@ -13,7 +13,6 @@ export default function Experience() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="code-label">// experience</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Work Experience</h2>
         </motion.div>
 
