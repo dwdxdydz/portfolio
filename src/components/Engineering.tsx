@@ -45,7 +45,6 @@ export default function Engineering() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="code-label">// engineering</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Engineering Mindset</h2>
           <p className="mt-4 max-w-2xl text-muted text-lg">
             I approach software the same way I approach business problems — break it down,
