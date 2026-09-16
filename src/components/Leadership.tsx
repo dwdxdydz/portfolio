@@ -13,7 +13,6 @@ export default function Leadership() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="code-label">// leadership</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
             Leadership &amp; Impact
           </h2>
