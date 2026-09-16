@@ -37,7 +37,6 @@ export default function BusinessAnalytics() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="code-label">// analytics</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
             Turning Data Into Decisions
           </h2>
