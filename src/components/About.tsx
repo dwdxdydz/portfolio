@@ -12,7 +12,6 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="code-label">// about</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Who I Am</h2>
 
           <div className="mt-8 space-y-5 text-muted text-lg leading-relaxed">
