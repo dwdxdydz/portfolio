@@ -492,7 +492,7 @@ export const CAREER_TIMELINE: TimelineItem[] = [
   {
     year: "2023",
     title: "Leadership at Scale",
-    subtitle: "Institute Indian Games Secretary · Inter IIT Marketing Manager",
+    subtitle: "Institute Indian Games Secretary · Marketing Manager",
     detail:
       "Led 36 conveners, managed institute events with 1,000+ participants, and coordinated marketing for the 56th Inter-IIT Sports Meet across 23 IITs.",
   },
@@ -544,7 +544,7 @@ export const LEADERSHIP_ROLES: LeadershipRole[] = [
     ],
   },
   {
-    title: "Inter IIT Marketing Manager",
+    title: "Marketing Manager",
     org: "56th Inter-IIT Sports Meet",
     period: "June 2023 – December 2023",
     bullets: [
