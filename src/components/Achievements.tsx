@@ -24,24 +24,28 @@ export default function Achievements() {
           </h2>
         </motion.div>
 
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {ACHIEVEMENTS.map((a, i) => (
             <motion.div
               key={a.label}
-              className="apple-glass-card p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs text-center flex flex-col justify-between"
+              className="apple-glass-card p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs text-center flex flex-col justify-between items-center min-h-[115px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.3, delay: i * 0.05 }}
             >
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold font-mono text-accent tracking-tight">
+              <div className="w-full">
+                <div className="text-base sm:text-lg lg:text-base xl:text-lg font-bold font-mono text-accent tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">
                   {a.value}
                 </div>
-                <p className="mt-1.5 text-xs sm:text-sm font-bold text-zinc-950 dark:text-zinc-50">{a.label}</p>
+                <p className="mt-1 text-xs sm:text-[13px] font-bold text-zinc-950 dark:text-zinc-50 leading-tight">
+                  {a.label}
+                </p>
               </div>
               {a.detail && (
-                <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400 font-medium">{a.detail}</p>
+                <p className="mt-1 text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 font-medium leading-snug">
+                  {a.detail}
+                </p>
               )}
             </motion.div>
           ))}
