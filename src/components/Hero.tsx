@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { PERSONAL } from "@/lib/data";
 import { motion } from "framer-motion";
 
@@ -58,7 +59,41 @@ function MailIcon() {
   );
 }
 
+const HERO_ACTIONS = [
+  {
+    id: "resume",
+    label: "View Resume",
+    href: PERSONAL.resumeUrl,
+    target: "_blank",
+    icon: DocumentIcon,
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: PERSONAL.linkedin,
+    target: "_blank",
+    icon: LinkedInIcon,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    href: PERSONAL.github,
+    target: "_blank",
+    icon: GitHubIcon,
+  },
+  {
+    id: "contact",
+    label: "Contact Me",
+    href: "#contact",
+    target: undefined,
+    icon: MailIcon,
+  },
+];
+
 export default function Hero() {
+  const [hoveredBtn, setHoveredBtn] = useState<string | null>(null);
+  const activeKey = hoveredBtn ?? "resume";
+
   return (
     <section
       id="home"
@@ -109,54 +144,50 @@ export default function Hero() {
           {PERSONAL.tagline}
         </motion.p>
 
-        {/* 4 Apple Pill CTA Buttons */}
+        {/* 4 Apple Action Buttons with Interactive Shared Active Pill Transfer */}
         <motion.div
           className="mt-7 flex flex-wrap items-center justify-center gap-3"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.25 }}
+          onMouseLeave={() => setHoveredBtn(null)}
         >
-          {/* View Resume - Primary Apple Pill with subtle scale hover */}
-          <a
-            href={PERSONAL.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="apple-pill-btn px-6 py-2.5 sm:py-3 bg-accent text-white rounded-full font-semibold text-sm shadow-[0_2px_10px_rgba(0,102,204,0.3)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,102,204,0.42)] active:scale-[0.98] transition-all duration-200 ease-out will-change-transform"
-          >
-            <DocumentIcon />
-            View Resume
-          </a>
+          {HERO_ACTIONS.map((action) => {
+            const isActive = activeKey === action.id;
+            const Icon = action.icon;
 
-          {/* LinkedIn Glass Pill */}
-          <a
-            href={PERSONAL.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="apple-pill-btn px-5 py-2.5 sm:py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-          >
-            <LinkedInIcon />
-            LinkedIn
-          </a>
+            return (
+              <a
+                key={action.id}
+                href={action.href}
+                target={action.target}
+                rel={action.target ? "noopener noreferrer" : undefined}
+                onMouseEnter={() => setHoveredBtn(action.id)}
+                className={`relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold transition-all duration-200 ease-out active:scale-[0.97] will-change-transform ${
+                  isActive
+                    ? "text-white scale-[1.03] z-10"
+                    : "text-zinc-800 dark:text-zinc-200 font-medium hover:text-zinc-950 dark:hover:text-zinc-50 z-0"
+                }`}
+              >
+                {/* Active Apple Blue Pill */}
+                {isActive ? (
+                  <motion.div
+                    layoutId="hero-action-active-pill"
+                    className="absolute inset-0 rounded-full bg-accent shadow-[0_4px_20px_rgba(0,113,227,0.38)]"
+                    transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                  />
+                ) : (
+                  /* Inactive Frosted Glass Pill */
+                  <div className="absolute inset-0 rounded-full bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 shadow-xs" />
+                )}
 
-          {/* GitHub Glass Pill */}
-          <a
-            href={PERSONAL.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="apple-pill-btn px-5 py-2.5 sm:py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-
-          {/* Contact Me Glass Pill */}
-          <a
-            href="#contact"
-            className="apple-pill-btn px-5 py-2.5 sm:py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-          >
-            <MailIcon />
-            Contact Me
-          </a>
+                <span className="relative z-10 flex items-center gap-2">
+                  <Icon />
+                  <span>{action.label}</span>
+                </span>
+              </a>
+            );
+          })}
         </motion.div>
 
         {/* Recruiter Quick Fact Anchors */}

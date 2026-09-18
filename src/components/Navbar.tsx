@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
       <nav
-        className={`pointer-events-auto w-full max-w-5xl rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto w-full max-w-5xl xl:max-w-[1060px] rounded-full transition-all duration-300 ${
           scrolled
             ? "bg-white/95 dark:bg-zinc-900/90 backdrop-blur-2xl border border-zinc-300/80 dark:border-zinc-700/80 shadow-[0_12px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
             : "bg-white/90 dark:bg-zinc-900/85 backdrop-blur-xl border border-zinc-200/90 dark:border-zinc-800/90 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
@@ -37,18 +37,18 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="px-4 sm:px-6">
+        <div className="px-5 sm:px-7 lg:px-8">
           <div className="flex items-center justify-between h-14">
-            {/* 1. Navbar Brand: ONLY "Ajit" with clear gap to navigation */}
+            {/* 1. Navbar Brand: ONLY "Ajit" with generous distinct gap */}
             <a
               href="#home"
-              className="flex items-center font-bold text-accent text-lg sm:text-xl tracking-tight hover:opacity-85 transition-opacity shrink-0 mr-4 sm:mr-6 lg:mr-8"
+              className="flex items-center font-bold text-accent text-lg sm:text-xl tracking-tight hover:opacity-85 transition-opacity shrink-0 mr-4 sm:mr-6 lg:mr-7 xl:mr-8"
               aria-label="Ajit - Home"
             >
               Ajit
             </a>
 
-            {/* 2. Desktop Navigation with Interactive Transparent Hover Bubble */}
+            {/* 2. Desktop Navigation with Enhanced Frosted Hover Bubble */}
             <div
               className="hidden lg:flex items-center gap-0.5 xl:gap-1"
               onMouseLeave={() => setHoveredNav(null)}
@@ -60,12 +60,12 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onMouseEnter={() => setHoveredNav(item.href)}
-                    className="relative inline-flex items-center justify-center h-8 px-2 lg:px-2.5 xl:px-3 text-[11.5px] lg:text-xs xl:text-[13px] font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 rounded-full transition-colors whitespace-nowrap"
+                    className="relative inline-flex items-center justify-center h-9 px-2.5 lg:px-2.5 xl:px-3 text-[11.5px] lg:text-xs xl:text-[13px] font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 rounded-full transition-colors whitespace-nowrap"
                   >
                     {isHovered && (
                       <motion.div
                         layoutId="navbar-hover-bubble"
-                        className="absolute inset-0 rounded-full bg-black/[0.07] dark:bg-white/[0.12] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.08] shadow-2xs pointer-events-none"
+                        className="absolute inset-0 rounded-full bg-black/[0.09] dark:bg-white/[0.15] backdrop-blur-2xl border border-black/[0.06] dark:border-white/[0.12] shadow-[0_2px_10px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.06)] pointer-events-none"
                         transition={{ type: "spring", stiffness: 450, damping: 32 }}
                       />
                     )}
@@ -74,15 +74,15 @@ export default function Navbar() {
                 );
               })}
 
-              {/* 3. Resume Button: PERMANENT BLUE PILL completely inside navbar */}
+              {/* 3. Resume Button: PERMANENT BLUE PILL completely enclosed inside navbar */}
               <a
                 href={PERSONAL.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 lg:ml-3 xl:ml-4 inline-flex items-center justify-center gap-1 h-8 px-3.5 xl:px-4 text-[11.5px] lg:text-xs xl:text-[13px] font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,113,227,0.3)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,113,227,0.45)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap shrink-0 will-change-transform"
+                className="ml-2 lg:ml-2.5 xl:ml-3.5 inline-flex items-center justify-center gap-1.5 h-9 px-4 xl:px-4.5 text-[11.5px] lg:text-xs xl:text-[13px] font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,113,227,0.35)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,113,227,0.48)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap shrink-0 will-change-transform"
               >
                 <span>Resume</span>
-                <span className="text-[11px] leading-none shrink-0">↗</span>
+                <span className="text-[11px] font-bold leading-none shrink-0">↗</span>
               </a>
             </div>
 
