@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden"
+      className="relative flex items-center justify-center pt-24 sm:pt-28 pb-10 sm:pb-14 overflow-hidden"
     >
       {/* Subtle grid backdrop */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" aria-hidden="true" />
@@ -73,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl text-xs font-mono font-medium text-zinc-800 dark:text-zinc-200 shadow-sm mb-6"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl text-xs font-mono font-medium text-zinc-800 dark:text-zinc-200 shadow-sm mb-5"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>IIT Bombay &apos;25 · Business Analyst · Bangalore</span>
@@ -91,7 +91,7 @@ export default function Hero() {
 
         {/* Role Subtitle */}
         <motion.div
-          className="mt-4 text-lg sm:text-2xl font-bold text-accent"
+          className="mt-3 text-lg sm:text-2xl font-bold text-accent"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.15 }}
@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Supporting Line */}
         <motion.p
-          className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal"
+          className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -111,17 +111,17 @@ export default function Hero() {
 
         {/* 4 Apple Pill CTA Buttons */}
         <motion.div
-          className="mt-10 flex flex-wrap items-center justify-center gap-3.5"
+          className="mt-8 flex flex-wrap items-center justify-center gap-3"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.25 }}
         >
-          {/* View Resume - Primary Apple Pill */}
+          {/* View Resume - Primary Apple Pill with subtle scale hover */}
           <a
             href={PERSONAL.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pill-btn px-6 py-3 bg-accent text-white rounded-full font-medium text-sm hover:bg-accent-light shadow-[0_4px_20px_rgba(0,102,204,0.3)] hover:shadow-[0_6px_28px_rgba(0,102,204,0.45)]"
+            className="apple-pill-btn px-6 py-2.5 sm:py-3 bg-accent text-white rounded-full font-semibold text-sm shadow-[0_2px_10px_rgba(0,102,204,0.3)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,102,204,0.42)] active:scale-[0.98] transition-all duration-200 ease-out will-change-transform"
           >
             <DocumentIcon />
             View Resume
@@ -132,7 +132,7 @@ export default function Hero() {
             href={PERSONAL.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pill-btn px-5 py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs"
+            className="apple-pill-btn px-5 py-2.5 sm:py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
           >
             <LinkedInIcon />
             LinkedIn
@@ -143,7 +143,7 @@ export default function Hero() {
             href={PERSONAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pill-btn px-5 py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs"
+            className="apple-pill-btn px-5 py-2.5 sm:py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
           >
             <GitHubIcon />
             GitHub
@@ -152,7 +152,7 @@ export default function Hero() {
           {/* Contact Me Glass Pill */}
           <a
             href="#contact"
-            className="apple-pill-btn px-5 py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs"
+            className="apple-pill-btn px-5 py-2.5 sm:py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
           >
             <MailIcon />
             Contact Me
@@ -161,30 +161,30 @@ export default function Hero() {
 
         {/* Recruiter Quick Fact Anchors */}
         <motion.div
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-3xl mx-auto text-left"
+          className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
         >
-          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+          <div className="apple-glass-card p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
             <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Education</span>
             <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">IIT Bombay</span>
             <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">B.Tech (2021–2025)</span>
           </div>
 
-          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+          <div className="apple-glass-card p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
             <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Current Role</span>
             <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">Business Analyst</span>
             <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">Emoha Elder Care</span>
           </div>
 
-          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+          <div className="apple-glass-card p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
             <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Core Stack</span>
             <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">SQL &amp; Power BI</span>
             <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">Excel, Python, Zoho</span>
           </div>
 
-          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+          <div className="apple-glass-card p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
             <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Specialization</span>
             <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">LTV &amp; MIS Dashboards</span>
             <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">Reporting Automation</span>

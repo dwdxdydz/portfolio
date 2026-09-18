@@ -39,7 +39,7 @@ function MailIcon() {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 sm:py-28 relative">
+    <section id="contact" className="py-12 sm:py-16 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           className="apple-glass-card p-8 sm:p-14 rounded-3xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-sm"

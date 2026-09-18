@@ -38,38 +38,38 @@ export default function Navbar() {
       >
         <div className="px-4 sm:px-6">
           <div className="flex items-center justify-between h-14 sm:h-15">
-            {/* Logo / Name */}
+            {/* 1. Navbar Brand / Title: Ajit | Business Analyst */}
             <a
               href="#home"
-              className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm sm:text-base group"
+              className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm sm:text-base group shrink-0"
             >
               <span className="font-bold text-accent text-base sm:text-lg tracking-tight">
                 Ajit
               </span>
-              <span className="text-zinc-300 dark:text-zinc-700">|</span>
-              <span className="hidden sm:inline text-xs font-mono font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-foreground transition-colors">
-                Data &amp; Business Analyst
+              <span className="text-zinc-300 dark:text-zinc-700 font-normal">|</span>
+              <span className="text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-accent transition-colors whitespace-nowrap">
+                Business Analyst
               </span>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            {/* 2. Desktop Navigation: Consistent Height, Alignment & Vertical Positioning */}
+            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="px-3.5 py-1.5 text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200"
+                  className="inline-flex items-center justify-center h-8 px-2.5 xl:px-3 text-xs xl:text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200 whitespace-nowrap"
                 >
                   {item.label}
                 </a>
               ))}
 
-              {/* Apple-Style Resume Pill Button */}
+              {/* 3. Resume Button Hover Interaction: Smooth Subtle Scale (1.04x) & Depth Shadow */}
               <a
                 href={PERSONAL.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 inline-flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-medium bg-accent text-white rounded-full hover:bg-accent-light transition-all shadow-[0_2px_12px_rgba(0,102,204,0.35)] hover:shadow-[0_4px_16px_rgba(0,102,204,0.45)] active:scale-95"
+                className="ml-2 inline-flex items-center justify-center gap-1.5 h-8 px-4 text-xs xl:text-sm font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,102,204,0.3)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,102,204,0.42)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap will-change-transform"
               >
                 Resume ↗
               </a>
@@ -124,7 +124,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-3.5 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition-colors"
+                    className="flex items-center h-9 px-3.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition-colors"
                   >
                     {item.label}
                   </a>
@@ -134,7 +134,7 @@ export default function Navbar() {
                     href={PERSONAL.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center px-4 py-2.5 text-sm font-medium bg-accent text-white rounded-full shadow-[0_2px_12px_rgba(0,102,204,0.35)] active:scale-98"
+                    className="flex items-center justify-center h-10 w-full text-sm font-semibold bg-accent text-white rounded-full shadow-[0_2px_12px_rgba(0,102,204,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                   >
                     View / Download Resume ↗
                   </a>

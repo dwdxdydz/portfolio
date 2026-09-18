@@ -7,7 +7,7 @@ export default function FeaturedCaseStudy() {
   const caseStudy = FEATURED_LTV_CASE_STUDY;
 
   return (
-    <section id="case-study" className="py-20 sm:py-28 relative">
+    <section id="case-study" className="py-12 sm:py-16 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
