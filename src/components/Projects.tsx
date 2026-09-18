@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { PROJECTS, PROJECT_CATEGORIES, type Project } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,13 +22,13 @@ function CaseStudyModal({
   if (!project.caseStudy) return null;
 
   const sections = [
-    { num: "01", title: "Problem", content: project.caseStudy.problem },
-    { num: "02", title: "Approach", content: project.caseStudy.approach },
-    { num: "03", title: "Architecture", content: project.caseStudy.architecture },
-    { num: "04", title: "Engineering Decisions", content: project.caseStudy.decisions },
-    { num: "05", title: "Results", content: project.caseStudy.results },
-    { num: "06", title: "Learnings", content: project.caseStudy.learnings },
-    { num: "07", title: "Future Improvements", content: project.caseStudy.future },
+    { num: "01", title: "Problem Statement", content: project.caseStudy.problem },
+    { num: "02", title: "Analytical Approach", content: project.caseStudy.approach },
+    { num: "03", title: "System Architecture", content: project.caseStudy.architecture },
+    { num: "04", title: "Technical & Design Decisions", content: project.caseStudy.decisions },
+    { num: "05", title: "Results & Findings", content: project.caseStudy.results },
+    { num: "06", title: "Key Learnings", content: project.caseStudy.learnings },
+    { num: "07", title: "Future Extensions", content: project.caseStudy.future },
   ];
 
   return (
@@ -45,11 +46,11 @@ function CaseStudyModal({
       />
 
       <motion.div
-        className="relative w-full max-w-3xl bg-surface border border-border rounded-xl shadow-2xl my-8"
-        initial={{ opacity: 0, y: 30, scale: 0.97 }}
+        className="relative w-full max-w-3xl bg-surface border border-border rounded-xl shadow-2xl my-8 z-10"
+        initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 20, scale: 0.97 }}
-        transition={{ duration: 0.25 }}
+        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+        transition={{ duration: 0.2 }}
         role="dialog"
         aria-modal="true"
         aria-label={`Case study: ${project.title}`}
@@ -57,7 +58,7 @@ function CaseStudyModal({
         {/* Header */}
         <div className="sticky top-0 bg-surface/95 backdrop-blur-sm border-b border-border p-6 rounded-t-xl flex items-start justify-between z-10">
           <div>
-            <span className="code-label">case study</span>
+            <span className="font-mono text-xs text-accent uppercase tracking-wider">Project Deep Dive</span>
             <h3 className="mt-1 text-2xl font-bold text-foreground">{project.title}</h3>
           </div>
           <button
@@ -73,30 +74,27 @@ function CaseStudyModal({
         </div>
 
         {/* Body */}
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-6">
           {sections.map((s) => (
-            <div key={s.num}>
-              <div className="flex items-center gap-3 mb-2">
+            <div key={s.num} className="pb-4 border-b border-border/40 last:border-0 last:pb-0">
+              <div className="flex items-center gap-2 mb-1.5">
                 <span className="font-mono text-xs text-accent font-semibold">
                   {s.num}
                 </span>
-                <h4 className="font-semibold text-foreground">{s.title}</h4>
+                <h4 className="font-semibold text-foreground text-sm sm:text-base">{s.title}</h4>
               </div>
-              <p className="text-sm text-muted leading-relaxed pl-9">{s.content}</p>
+              <p className="text-sm text-muted leading-relaxed pl-6">{s.content}</p>
             </div>
           ))}
 
           {/* Technologies */}
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="font-mono text-xs text-accent font-semibold">—</span>
-              <h4 className="font-semibold text-foreground">Technologies</h4>
-            </div>
-            <div className="flex flex-wrap gap-2 pl-9">
+          <div className="pt-2">
+            <h4 className="font-semibold text-foreground text-sm mb-2">Technologies Used</h4>
+            <div className="flex flex-wrap gap-2">
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-2.5 py-1 text-xs font-mono bg-surface-alt border border-border rounded text-muted"
+                  className="px-2.5 py-1 text-xs font-mono bg-surface-alt border border-border rounded text-foreground"
                 >
                   {t}
                 </span>
@@ -106,15 +104,15 @@ function CaseStudyModal({
 
           {/* GitHub link */}
           {project.github && (
-            <div className="pl-9">
+            <div className="pt-2">
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-surface-alt border border-border rounded-md text-foreground hover:border-accent/50 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-accent text-white rounded-md hover:bg-accent-light transition-colors shadow-sm"
               >
                 <GitHubIcon />
-                View on GitHub
+                View Source Repository on GitHub
               </a>
             </div>
           )}
@@ -133,7 +131,7 @@ export default function Projects() {
     filter === "all"
       ? PROJECTS
       : filter === "featured"
-      ? PROJECTS.filter((p) => p.category === "featured" || p.featured)
+      ? PROJECTS.filter((p) => p.featured)
       : PROJECTS.filter((p) => p.category === filter);
 
   const displayedProjects = showAll ? filtered : filtered.slice(0, 4);
@@ -144,31 +142,37 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 sm:py-32">
+    <section id="projects" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Selected Work</h2>
-          <p className="mt-4 max-w-2xl text-muted text-lg">
-            Real projects with real code — from SaaS unit economics & growth experimentation
-            to modern data stack pipelines, flight tracking, and AI systems.
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-2 h-2 rounded-full bg-accent" />
+            <span className="font-mono text-xs text-accent uppercase tracking-wider">Technical Portfolio</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            Featured Projects &amp; Software Systems
+          </h2>
+          <p className="mt-3 max-w-2xl text-muted text-base sm:text-lg">
+            Practical applications spanning analytics frameworks, modern data pipelines, automated backend systems, and AI tools.
           </p>
         </motion.div>
 
-        {/* Filters */}
+        {/* Category Filters */}
         <div className="mt-8 flex flex-wrap gap-2">
           {PROJECT_CATEGORIES.map((cat) => (
             <button
               key={cat.key}
               onClick={() => handleFilterChange(cat.key)}
-              className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
+              className={`px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
                 filter === cat.key
-                  ? "bg-accent text-white"
-                  : "bg-surface-alt text-muted border border-border hover:text-foreground"
+                  ? "bg-accent text-white shadow-sm"
+                  : "bg-surface-alt text-muted border border-border hover:text-foreground hover:bg-surface"
               }`}
             >
               {cat.label}
@@ -176,67 +180,89 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Project grid */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Project Grid */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.25 }}
-                className="p-6 rounded-xl border border-border bg-surface hover:border-accent/30 transition-colors flex flex-col"
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2 }}
+                className="p-6 sm:p-7 rounded-xl border border-border bg-surface hover:border-accent/40 transition-colors flex flex-col justify-between shadow-sm"
               >
-                {/* Category badge */}
-                <span className="font-mono text-xs text-accent mb-3">
-                  {PROJECT_CATEGORIES.find((c) => c.key === project.category)?.label}
-                </span>
-
-                <h3 className="text-lg font-bold text-foreground">{project.title}</h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed flex-1">
-                  {project.summary}
-                </p>
-
-                {/* Tech tags */}
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {project.tech.slice(0, 6).map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 text-xs font-mono bg-surface-alt border border-border rounded text-muted"
-                    >
-                      {t}
+                <div>
+                  {/* Category badge */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-xs text-accent font-semibold uppercase tracking-wider">
+                      {PROJECT_CATEGORIES.find((c) => c.key === project.category)?.label}
                     </span>
-                  ))}
-                  {project.tech.length > 6 && (
-                    <span className="px-2 py-0.5 text-xs font-mono text-muted">
-                      +{project.tech.length - 6}
-                    </span>
+                    {project.featured && (
+                      <span className="px-2 py-0.5 text-[10px] font-mono bg-accent/10 text-accent rounded border border-accent/20">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground">{project.title}</h3>
+
+                  <p className="mt-2 text-sm text-muted leading-relaxed">
+                    {project.summary}
+                  </p>
+
+                  {/* Recruiter-Friendly Key Technical Concept */}
+                  {project.concept && (
+                    <div className="mt-4 p-3 rounded-lg bg-surface-alt/70 border border-border text-xs text-muted leading-relaxed">
+                      <span className="font-semibold text-foreground font-mono block mb-1">
+                        💡 Key Concept:
+                      </span>
+                      {project.concept}
+                    </div>
                   )}
                 </div>
 
-                {/* Actions */}
-                <div className="mt-5 flex items-center gap-3">
-                  {project.caseStudy && (
-                    <button
-                      onClick={() => setCaseStudyProject(project)}
-                      className="px-3 py-1.5 text-sm font-medium bg-accent text-white rounded-md hover:bg-accent-light transition-colors"
-                    >
-                      View Case Study
-                    </button>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-border rounded-md text-muted hover:text-foreground hover:border-accent/30 transition-colors"
-                    >
-                      <GitHubIcon />
-                      GitHub
-                    </a>
-                  )}
+                <div className="mt-6">
+                  {/* Tech tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {project.tech.slice(0, 5).map((t) => (
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 text-xs font-mono bg-surface-alt border border-border rounded text-muted"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                    {project.tech.length > 5 && (
+                      <span className="px-2 py-0.5 text-xs font-mono text-muted">
+                        +{project.tech.length - 5}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-border/60">
+                    {project.caseStudy && (
+                      <button
+                        onClick={() => setCaseStudyProject(project)}
+                        className="px-3.5 py-1.5 text-xs sm:text-sm font-medium bg-accent text-white rounded-md hover:bg-accent-light transition-colors shadow-sm"
+                      >
+                        View Deep Dive
+                      </button>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm border border-border rounded-md text-muted hover:text-foreground hover:border-accent/30 transition-colors"
+                      >
+                        <GitHubIcon />
+                        GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -245,7 +271,7 @@ export default function Projects() {
 
         {/* Show More / Show Less Button */}
         {filtered.length > 4 && (
-          <div className="mt-12 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <button
               onClick={() => setShowAll(!showAll)}
               className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium bg-surface border border-border hover:border-accent/50 text-foreground rounded-lg transition-all shadow-sm hover:shadow"

@@ -1,9 +1,10 @@
-// All portfolio data in one place — every fact is sourced from the resume, GitHub repos, and verified projects.
+// All portfolio data in one place — every fact is sourced from resume, GitHub repos, and verified projects.
 
 export const PERSONAL = {
   name: "Ajit Pal Singh",
+  title: "Data Analyst | Business Analyst | IIT Bombay Graduate",
   tagline:
-    "I work at the intersection of business, data, and technology — turning complex problems into measurable insights, scalable workflows, and practical software.",
+    "Turning business data into actionable insights through SQL, Excel, Power BI, Python, and automation.",
   location: "Bangalore, India",
   email: "ajit.iitb25@gmail.com",
   linkedin: "https://www.linkedin.com/in/ajitpalsinghiitb",
@@ -12,24 +13,14 @@ export const PERSONAL = {
 };
 
 export const NAV_ITEMS = [
-  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Analytics", href: "#analytics" },
-  { label: "Engineering", href: "#engineering" },
+  { label: "LTV Case Study", href: "#case-study" },
+  { label: "Skills", href: "#skills" },
+  { label: "AI & Automation", href: "#ai-automation" },
   { label: "Projects", href: "#projects" },
   { label: "Leadership", href: "#leadership" },
-  { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
-];
-
-export const METRICS = [
-  { value: "₹5+ Cr", label: "Business Revenue Tracked" },
-  { value: "1,000+", label: "Conversions Analyzed" },
-  { value: "50+", label: "Sales Executives Supported" },
-  { value: "~90%", label: "CV Model Accuracy" },
-  { value: "~15ms", label: "Inference Latency" },
-  { value: "300+", label: "DSA Problems Solved" },
 ];
 
 export interface Experience {
@@ -48,20 +39,21 @@ export const EXPERIENCES: Experience[] = [
     location: "Bangalore",
     period: "December 2025 – Present",
     bullets: [
-      "Analyze sales, lead funnel, and revenue performance across Home Care and Membership verticals, tracking 1,000+ conversions and ₹5+ Cr business revenue.",
-      "Built and automated MIS dashboards using Excel, CRM data, and Zoho Analytics for real-time productivity and performance monitoring.",
-      "Analyze lead sources and conversion rates to improve campaign and sales efficiency.",
-      "Work on performance-based lead reassignment across digital and inbound channels.",
-      "Work cross-functionally with Sales, HR, Finance, and Tech teams, supporting 50+ sales executives.",
-      "Automate invoice and collection tracking processes.",
+      "Analyze sales performance, lead conversion funnels, and revenue metrics across multiple business verticals to uncover growth trends and operational bottlenecks.",
+      "Design, build, and maintain automated MIS dashboards and reports using Advanced Excel, SQL, Zoho Analytics, and Power BI for real-time executive and operational monitoring.",
+      "Perform granular conversion rate and lead source attribution analysis to optimize marketing campaign spend and enhance sales team productivity.",
+      "Conduct in-depth Customer Lifetime Value (LTV) and cohort retention analysis across Business Units, regions, and campaigns to inform strategic customer acquisition and retention priorities.",
+      "Collaborate cross-functionally with Sales, HR, Finance, and Tech teams, delivering data-backed recommendations that improve business processes and daily workflows.",
     ],
     tech: [
-      "Excel",
-      "Zoho Analytics",
-      "Power BI",
       "SQL",
-      "CRM Analytics",
-      "MIS",
+      "Advanced Excel",
+      "Power BI",
+      "Zoho Analytics",
+      "Python",
+      "MIS Reporting",
+      "LTV & Cohort Analysis",
+      "Funnel Analytics",
     ],
   },
   {
@@ -70,9 +62,9 @@ export const EXPERIENCES: Experience[] = [
     location: "Mumbai",
     period: "May 2024 – July 2024",
     bullets: [
-      "Built a real-time pose detection system using YOLOv8, achieving ~90% accuracy at ~15ms latency.",
-      "Developed modular data pipelines with asynchronous workflows and batching for performance optimization.",
-      "Integrated YOLOv8 and stereo-vision modules into a unified pipeline; designed reliable data-processing flows.",
+      "Built real-time pose detection and tracking systems using YOLOv8, OpenCV, and deep learning algorithms.",
+      "Developed modular asynchronous data processing pipelines with batching and caching for high-throughput video feeds.",
+      "Integrated YOLOv8 and stereo-vision modules into an end-to-end pipeline, performing depth estimation and inference optimization on Linux.",
     ],
     tech: [
       "Python",
@@ -81,16 +73,97 @@ export const EXPERIENCES: Experience[] = [
       "NumPy",
       "Stereo Vision",
       "Linux",
+      "Data Pipelines",
     ],
+  },
+];
+
+export interface LTVCaseStudy {
+  title: string;
+  badge: string;
+  summary: string;
+  problem: string;
+  whatIDid: string;
+  insight: string;
+  impact: string;
+  tools: string[];
+}
+
+export const FEATURED_LTV_CASE_STUDY: LTVCaseStudy = {
+  title: "Customer Lifetime Value (LTV) & Retention Analysis",
+  badge: "Featured Analytics Case Study",
+  summary:
+    "An end-to-end analytical study across customer segments, business units, and marketing channels that diagnosed retention patterns and reshaped field sales operations.",
+  problem:
+    "Customer Lifetime Value (LTV) was not being tracked systematically across customer touchpoints. Without a unified view of customer value and retention decay, business leadership lacked visibility into which acquisition channels delivered sustainable value versus high early drop-off.",
+  whatIDid:
+    "Aggregated and modeled multi-source transactional, CRM, and campaign data using SQL, Advanced Excel, and Power BI. Sliced customer cohorts across Business Units, geographic regions, tier-wise cities, marketing acquisition campaigns, and product categories to map out cumulative revenue trajectories and churn inflection points.",
+  insight:
+    "Identified critical disparities in customer value across different channels and regions. Revealed that long-term customer retention — rather than purely top-of-funnel acquisition volume — was the primary determinant of overall customer lifetime value.",
+  impact:
+    "The analysis provided executive visibility into customer profitability and directly contributed to a new sales setup that restructured how Field Business Development teams prioritize high-value customer accounts and manage post-sales relationship touchpoints.",
+  tools: ["SQL", "Advanced Excel", "Power BI", "Python", "Cohort Modeling", "Segmentation"],
+};
+
+export interface AIAutomationItem {
+  title: string;
+  category: string;
+  icon: string;
+  description: string;
+  tools: string[];
+}
+
+export const AI_AUTOMATION_PRACTICES: AIAutomationItem[] = [
+  {
+    title: "Automating Repetitive Reporting",
+    category: "Workflow Automation",
+    icon: "⚡",
+    description:
+      "Automated routine MIS reports and daily metrics compilation using AI-assisted scripts, eliminating manual copy-pasting and repetitive workbook updating.",
+    tools: ["Python", "Excel Automation", "AI Scripting"],
+  },
+  {
+    title: "Multi-Sheet Excel Consolidation",
+    category: "Data Wrangling",
+    icon: "📊",
+    description:
+      "Used Microsoft Copilot and automated scripts to fetch, parse, and harmonize disparate data from multiple Excel workbooks into unified structured datasets for reporting.",
+    tools: ["Copilot", "Advanced Excel", "Power Query"],
+  },
+  {
+    title: "Data Cleaning & Transformation",
+    category: "Analytics Productivity",
+    icon: "🧹",
+    description:
+      "Leveraged generative AI to rapidly generate complex SQL queries, formulate regex patterns for messy CRM strings, and build exploratory visualization prototypes.",
+    tools: ["SQL", "Python", "ChatGPT", "Pandas"],
+  },
+  {
+    title: "Hourly Operations & Tracking",
+    category: "Operational Efficiency",
+    icon: "⏱️",
+    description:
+      "Used AI tools to streamline high-frequency hourly operations reporting and format ad-hoc analytical summaries for rapid stakeholder decision-making.",
+    tools: ["ChatGPT", "MIS Dashboards", "Excel"],
+  },
+  {
+    title: "Code Debugging & Software Optimization",
+    category: "Technical Acceleration",
+    icon: "🛠️",
+    description:
+      "Utilized AI models to assist with code reviews, debug backend logic, scaffold automated tests with Pytest, and optimize SQL query execution plans.",
+    tools: ["Python", "Pytest", "Git", "AI Coding"],
   },
 ];
 
 export interface Project {
   id: string;
   title: string;
-  category: "featured" | "ai-ml" | "analytics" | "engineering" | "dsa";
+  category: "analytics" | "engineering" | "ai-ml" | "dsa";
   featured?: boolean;
   summary: string;
+  problem: string;
+  concept: string; // Recruiter-friendly technical concept explanation
   tech: string[];
   github?: string;
   caseStudy?: {
@@ -111,7 +184,11 @@ export const PROJECTS: Project[] = [
     category: "analytics",
     featured: true,
     summary:
-      "A B2B SaaS financial modeling and churn diagnosis engine tracking MRR/ARR waterfalls, Net Revenue Retention (NRR), CAC payback, and triangular cohort retention decay. Features an automated root-cause analyzer connecting sales discount policies to churn velocity.",
+      "A B2B SaaS financial modeling and churn diagnosis engine tracking MRR/ARR waterfalls, Net Revenue Retention (NRR), CAC payback, and triangular cohort retention decay.",
+    problem:
+      "Topline subscription revenue growth was masking an underlying churn leak in entry-level tiers, making it difficult to pinpoint whether the root cause was pricing, onboarding, or discounting policies.",
+    concept:
+      "Cohort Retention Analysis: Groups customers by signup month and tracks their retention over time to see whether newer cohorts stay longer than older ones.",
     tech: ["Python", "Pandas", "Streamlit", "Plotly", "Cohort Analysis", "Financial Modeling", "Pytest"],
     github: "https://github.com/dwdxdydz/saas-churn-unit-economics",
     caseStudy: {
@@ -124,7 +201,7 @@ export const PROJECTS: Project[] = [
       decisions:
         "Segmented cohorts by both acquisition month and pricing tier. Implemented separate logo vs. net revenue retention matrices to highlight expansion counteracting churn in higher tiers. Applied discount elasticity modeling.",
       results:
-        "Identified that accounts with >20% upfront discounts experienced 1.8x higher churn rates by Month 6, and established that 48% of all churn occurred in the first 90 days. Built actionable executive recommendations to compress payback from 16.4 to 10.8 months.",
+        "Identified that accounts with high upfront discounts experienced higher churn by Month 6, and established that a substantial portion of churn occurred in the first 90 days. Built actionable executive recommendations to optimize payback periods.",
       learnings:
         "Deepened expertise in SaaS unit economics, LTV:CAC modeling, cohort decay mathematics, and translating analytical outputs into executive decision frameworks.",
       future:
@@ -137,20 +214,24 @@ export const PROJECTS: Project[] = [
     category: "analytics",
     featured: true,
     summary:
-      "An experimentation and growth analytics platform for multi-step e-commerce checkout funnel drop-off analysis, Two-Proportion Z-tests, Welch's T-tests for Revenue per Visitor (RPV), and statistical sample size/power planning.",
+      "An experimentation and growth analytics platform for multi-step e-commerce checkout funnel drop-off analysis, Two-Proportion Z-tests, Welch's T-tests, and statistical sample size planning.",
+    problem:
+      "E-commerce platforms experience substantial drop-offs between cart addition and checkout completion. Product and growth teams need statistically sound testing to evaluate variants without false-positive winner bias.",
+    concept:
+      "Statistical Hypothesis Testing: Determines with mathematical confidence whether a conversion difference between two user groups is a genuine improvement or random chance.",
     tech: ["Python", "SciPy", "Statsmodels", "Streamlit", "Plotly", "A/B Testing", "Funnel Analysis", "Pytest"],
     github: "https://github.com/dwdxdydz/growth-funnel-ab-testing",
     caseStudy: {
       problem:
         "E-commerce platforms experience substantial revenue drop-offs between cart addition and checkout completion. Product and growth teams needed a statistically rigorous testing framework to evaluate checkout variants without false-positive winner bias.",
       approach:
-        "Built an end-to-end clickstream event processing engine paired with a statistical hypothesis testing harness calculating Z-statistics, p-values, 95% confidence intervals, relative lift, and sample size requirements based on statistical power (1 - β = 0.80).",
+        "Built an end-to-end clickstream event processing engine paired with a statistical hypothesis testing harness calculating Z-statistics, p-values, 95% confidence intervals, relative lift, and sample size requirements based on statistical power.",
       architecture:
         "Clickstream Event Log Generator (10,000+ sessions) → Step Progression & Drop-off Calculator → Statistical A/B Harness (Two-Proportion Z-test + Welch's T-test) → Interactive Streamlit Growth Portal with Sample Size Planner.",
       decisions:
         "Used Welch's T-test to account for unequal variances in revenue per visitor distributions. Implemented pre-experiment sample size calculator with adjustable Minimum Detectable Effect (MDE) and alpha levels to prevent premature experiment stopping.",
       results:
-        "Successfully simulated a frictionless 1-click checkout variant proving a statistically significant +18.4% relative conversion lift (p < 0.001) and +$4.20 increase in Revenue per Visitor.",
+        "Successfully simulated a frictionless 1-click checkout variant proving statistically significant conversion lift and revenue per visitor gains with validated confidence intervals.",
       learnings:
         "Mastery of hypothesis formulation, Type I / Type II error trade-offs, minimum detectable effect modeling, and conversion rate optimization (CRO) methodologies.",
       future:
@@ -163,7 +244,11 @@ export const PROJECTS: Project[] = [
     category: "engineering",
     featured: true,
     summary:
-      "A dimensional data warehouse pipeline using Kimball star-schema modeling, modular staging/marts SQL transformations with DuckDB, automated dbt-style schema quality tests, and rolling Z-score revenue anomaly alerting.",
+      "A dimensional data warehouse pipeline using Kimball star-schema modeling, modular staging/marts SQL transformations with DuckDB, automated schema quality tests, and rolling Z-score anomaly alerting.",
+    problem:
+      "Raw transactional OLTP databases are optimized for writes, resulting in slow analytical queries, missing data validation, and lack of proactive alerting when revenue anomalies occur.",
+    concept:
+      "Dimensional Data Modeling (Star Schema): Organizes business data into 'facts' (measurable events like orders) and 'dimensions' (context like customers and products) for blazing-fast analytics queries.",
     tech: ["DuckDB", "Modular SQL", "Python", "Data Quality", "Z-Score Anomaly Detection", "Streamlit", "Pytest"],
     github: "https://github.com/dwdxdydz/ecommerce-mds-pipeline",
     caseStudy: {
@@ -176,7 +261,7 @@ export const PROJECTS: Project[] = [
       decisions:
         "Employed Kimball dimensional modeling with RFM customer segmentation. Embedded strict data assertions (uniqueness, referential integrity, not-null constraints) that execute automatically in CI. Used rolling 14-day Z-scores to filter out day-of-week seasonality.",
       results:
-        "Delivered sub-50ms analytics query latency across millions of row aggregations with 100% data quality test coverage and automated incident alerts for abnormal revenue swings.",
+        "Delivered sub-50ms analytics query latency across aggregations with 100% data quality test coverage and automated incident alerts for abnormal revenue swings.",
       learnings:
         "Star-schema data architecture, surrogate key management, automated schema assertions, and statistical process control for analytical data pipelines.",
       future:
@@ -184,45 +269,17 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    id: "analytics-ingestion",
-    title: "High-Throughput Analytics Ingestion Engine",
-    category: "engineering",
-    summary:
-      "An asynchronous event ingestion service built with FastAPI, Pydantic validation, Token-Bucket Rate Limiting, and an async batch worker that flushes telemetry streams into a high-concurrency WAL-enabled SQL store.",
-    tech: ["FastAPI", "Python", "AsyncIO", "Pydantic", "Token Bucket", "SQLite WAL", "Docker", "Pytest"],
-    github: "https://github.com/dwdxdydz/analytics-ingestion-engine",
-    caseStudy: {
-      problem:
-        "Direct synchronous database writes under spike traffic from thousands of client devices cause connection pool starvation, high API latency, and potential data loss.",
-      approach:
-        "Developed a non-blocking asynchronous ingestion API returning immediate HTTP 202 Accepted, utilizing a Token Bucket rate limiter and an in-memory batch queue worker that flushes events in bulk transactions.",
-      architecture:
-        "Client HTTP Requests → Token Bucket Rate Limiter → FastAPI Ingestion Endpoints (Single & Batch) → In-Memory Async Queue → Periodic/Threshold Batch Worker → Async SQLite WAL Persistence.",
-      decisions:
-        "Enforced strict payload typing via Pydantic. Used asynchronous queues and batch executemany SQL queries to minimize lock times. Enabled WAL (Write-Ahead Logging) for concurrent reads and writes.",
-      results:
-        "Achieved 1,500+ requests/sec ingestion throughput on a single core with sub-5ms response times and zero lost events during traffic burst simulations.",
-      learnings:
-        "Asynchronous concurrency patterns in Python, token-bucket algorithm mechanics, database connection lifecycle management, and containerized deployment practices.",
-      future:
-        "Distributed Redis Streams backend and Kafka partition consumers for multi-node clustering.",
-    },
-  },
-  {
     id: "flight-alert",
-    title: "Flight Alert System",
-    category: "featured",
+    title: "Automated Flight Price Monitoring & Alert System",
+    category: "engineering",
+    featured: true,
     summary:
-      "Automated flight price monitoring tool that tracks prices, stores historical data in MySQL, detects deals using statistical analysis, and sends email alerts. Includes a Streamlit analytics dashboard with Plotly visualizations and CI/CD via GitHub Actions.",
-    tech: [
-      "Python",
-      "MySQL",
-      "Streamlit",
-      "Plotly",
-      "SMTP",
-      "GitHub Actions",
-      "Pytest",
-    ],
+      "An automated price tracking engine that queries flight APIs, stores historical prices in MySQL, detects price drops using statistical baselines, and dispatches automated email alerts.",
+    problem:
+      "Manually checking airfare across multiple dates and routes is tedious and prone to missing optimal booking windows when price drops occur.",
+    concept:
+      "Automated Polling & Alerting Pipeline: Continuously monitors external data streams, evaluates conditions against historical statistical baselines, and triggers proactive notifications.",
+    tech: ["Python", "MySQL", "Streamlit", "Plotly", "SMTP", "GitHub Actions", "Pytest"],
     github: "https://github.com/dwdxdydz/Flight-Alert-System",
     caseStudy: {
       problem:
@@ -246,16 +303,12 @@ export const PROJECTS: Project[] = [
     title: "RAG Document Assistant",
     category: "ai-ml",
     summary:
-      "Retrieval-Augmented Generation system that lets users ask questions about PDF documents. The pipeline extracts text, chunks it, generates embeddings, indexes with FAISS, and uses FLAN-T5 for answer generation — keeping retrieval and generation separate for transparency.",
-    tech: [
-      "Python",
-      "FAISS",
-      "SentenceTransformers",
-      "FLAN-T5",
-      "Streamlit",
-      "Pytest",
-      "GitHub Actions",
-    ],
+      "A Retrieval-Augmented Generation system allowing natural language Q&A over complex PDF documents by separating semantic vector retrieval from local language model generation.",
+    problem:
+      "Searching through dense PDF documents for specific facts is time-consuming. Direct LLM prompting suffers from hallucinations without verifiable document citations.",
+    concept:
+      "Vector Similarity Search (RAG): Converts text into mathematical coordinate vectors so the system can retrieve the exact relevant passages based on meaning rather than mere keyword matching.",
+    tech: ["Python", "FAISS", "SentenceTransformers", "FLAN-T5", "Streamlit", "Pytest"],
     github: "https://github.com/dwdxdydz/RAG-Sytem",
     caseStudy: {
       problem:
@@ -276,94 +329,54 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "fourier-drawing",
-    title: "Fourier Image Drawing",
+    title: "Fourier Image Drawing & Epicycle Animator",
     category: "engineering",
     summary:
-      "Transforms images into animated GIFs by reconstructing outlines using Fourier analysis and rotating epicycles. The image contour is treated as a complex-valued signal, decomposed into frequency components, and redrawn through spinning circles.",
+      "Transforms image contours into animated reconstructions using complex-valued Fourier analysis and rotating epicycles, rendering the drawing process frame-by-frame.",
+    problem:
+      "Bridging abstract signal processing and frequency decomposition mathematics with visual intuition.",
+    concept:
+      "Fourier Decomposition: Breaks down any continuous 2D closed curve into a series of rotating circles (frequencies), showing how simple harmonic motions combine to form complex shapes.",
     tech: ["Python", "NumPy", "Matplotlib", "Pillow", "Fourier Analysis"],
     github: "https://github.com/dwdxdydz/Fourier-Image-Drawing",
-    caseStudy: {
-      problem:
-        "Visualizing how Fourier series can approximate arbitrary shapes — bridging the gap between abstract mathematics and visual intuition.",
-      approach:
-        "Extract image contours → represent as complex numbers → compute Fourier coefficients → reconstruct the shape using rotating epicycles → animate the drawing process frame by frame.",
-      architecture:
-        "Image → contour detection → complex number representation → Fourier coefficient computation → epicycle simulation → frame-by-frame rendering → GIF assembly.",
-      decisions:
-        "Used complex number representation for natural Fourier analysis. Number of terms is configurable — more terms mean higher fidelity but more computation. CLI interface for flexibility.",
-      results:
-        "Generates animated GIFs showing how rotating circles (epicycles) reconstruct image outlines, making Fourier decomposition visually intuitive.",
-      learnings:
-        "Deep understanding of Fourier series in 2D, image processing pipelines, animation generation, and the trade-off between mathematical precision and computational cost.",
-      future:
-        "FFT-based speedup, better contour resampling, interactive real-time controls.",
-    },
   },
   {
     id: "seq2seq",
-    title: "Seq2Seq Translation Model",
+    title: "Seq2Seq Machine Translation Model",
     category: "ai-ml",
     summary:
-      "An educational English → French machine translation system using a GRU-based encoder-decoder architecture. Implements teacher forcing, gradient clipping, and greedy decoding. Built to understand the fundamentals of sequence-to-sequence models.",
-    tech: ["Python", "PyTorch", "GRU", "NLP", "Pytest", "GitHub Actions"],
+      "An educational English → French machine translation system built from scratch using PyTorch with a GRU encoder-decoder architecture, teacher forcing, and gradient clipping.",
+    problem:
+      "Understanding the foundational mechanics of sequence-to-sequence neural architectures and attention mechanisms from first principles.",
+    concept:
+      "Encoder-Decoder Architecture: An encoder network compresses an input sequence into a fixed context representation, which a decoder network unpacks into an output sequence.",
+    tech: ["Python", "PyTorch", "GRU", "NLP", "Pytest"],
     github: "https://github.com/dwdxdydz/Seq2Seq-Model",
-    caseStudy: {
-      problem:
-        "Understanding how neural machine translation works at a fundamental level — from tokenization through encoding and decoding.",
-      approach:
-        "Built a GRU encoder-decoder from scratch using PyTorch. Input text is tokenized, encoded into a context vector, then decoded token-by-token to produce the translation.",
-      architecture:
-        "Input text → tokenization → embedding → GRU encoder → context vector → GRU decoder → output tokens. Teacher forcing used during training; greedy decoding at inference.",
-      decisions:
-        "GRU chosen over LSTM for simplicity while retaining gating mechanisms. Gradient clipping for training stability. Intentionally small dataset to focus on architecture understanding rather than translation quality.",
-      results:
-        "A working seq2seq translator that demonstrates the core architecture. The small dataset is acknowledged — this is an educational project, not a production translation system.",
-      learnings:
-        "Encoder-decoder architectures, teacher forcing trade-offs, handling variable-length sequences, and the importance of data scale for NLP quality.",
-      future:
-        "Attention mechanisms, BLEU scoring, beam-search decoding, checkpoint saving, and Transformer comparison.",
-    },
   },
   {
     id: "lru-cache",
-    title: "LRU Cache",
+    title: "Least Recently Used (LRU) Cache",
     category: "dsa",
     summary:
-      "A reusable Least Recently Used cache with O(1) operations for get, put, and peek. Tracks hits, misses, and evictions. Handles edge cases like stored None values. Includes benchmarks and automated tests.",
-    tech: ["Python", "OrderedDict", "Pytest"],
+      "A high-performance in-memory cache supporting strictly O(1) constant-time get, put, and peek operations with integrated hit/miss/eviction telemetry.",
+    problem:
+      "Optimizing memory utilization by maintaining a fixed-size storage buffer that automatically evicts the oldest unused records under high read/write loads.",
+    concept:
+      "O(1) Data Structures: Combines a hash map for instantaneous key lookup with an access-ordered list for constant-time eviction of least-recently used elements.",
+    tech: ["Python", "Data Structures", "Pytest"],
     github: "https://github.com/dwdxdydz/LRU-Cache",
-    caseStudy: {
-      problem:
-        "Implementing a cache with constant-time retrieval and eviction — a classic system design and data structures problem.",
-      approach:
-        "Used Python's OrderedDict to maintain insertion/access order. On access, items move to the end; on capacity overflow, the first (least recently used) item is evicted.",
-      architecture:
-        "OrderedDict-backed store with fixed capacity. get() retrieves and moves to end, put() inserts/updates with eviction check, peek() reads without reordering.",
-      decisions:
-        "OrderedDict provides O(1) move-to-end and pop-first operations, eliminating the need for a manual doubly linked list + hashmap. Stats tracking (hits/misses/evictions) built in for observability.",
-      results:
-        "A clean, reusable cache implementation demonstrating understanding of core data structures, time complexity, and system design concepts.",
-      learnings:
-        "Trade-offs in cache design, the importance of O(1) guarantees, and how standard library data structures can simplify implementations.",
-      future:
-        "TTL support, thread safety, comparison with functools.lru_cache.",
-    },
-  },
-  {
-    id: "sales-dashboard",
-    title: "Sales Performance Analytics Dashboard",
-    category: "analytics",
-    summary:
-      "Regional sales, profit, refund, and target achievement analysis with month-over-month trends, KPI scorecards, and business risk identification. Built to support data-driven business decisions, not just visualize numbers.",
-    tech: ["Power BI", "Power Query", "Excel", "Data Analytics"],
   },
   {
     id: "sudoku",
-    title: "Sudoku Solver",
+    title: "Algorithmic Sudoku Solver",
     category: "dsa",
     summary:
-      "Sudoku game with an integrated solver. Demonstrates algorithmic thinking, backtracking, and constraint satisfaction — a practical application of core computer science concepts.",
-    tech: ["Python"],
+      "An interactive Sudoku game and automated solver demonstrating recursive backtracking algorithms and constraint satisfaction.",
+    problem:
+      "Efficiently solving combinatorial grid puzzles with strict row, column, and subgrid constraints without exhaustive brute-force search.",
+    concept:
+      "Recursive Backtracking: An algorithmic technique that incrementally builds candidates and immediately abandons (backtracks from) invalid branches when constraints fail.",
+    tech: ["Python", "Algorithms", "Backtracking"],
     github: "https://github.com/dwdxdydz/sudoku",
   },
 ];
@@ -379,68 +392,79 @@ export const PROJECT_CATEGORIES = [
 
 export interface SkillGroup {
   title: string;
+  category: "primary" | "core" | "technical" | "tools";
+  badge: string;
+  description: string;
   skills: string[];
 }
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    title: "Analytics & BI",
+    title: "Data & Analytics",
+    category: "primary",
+    badge: "Primary Focus",
+    description: "Core analytical stack for querying, modeling, and executive dashboarding",
     skills: [
-      "Excel",
-      "Power BI",
-      "Power Query",
-      "Zoho Analytics",
       "SQL",
+      "Advanced Excel",
+      "Power BI",
+      "Python",
+      "Zoho Analytics",
       "Data Analysis",
-      "MIS",
-      "KPI Analysis",
-      "Sales Analytics",
-      "Revenue Analytics",
-      "Cohort Analysis",
+      "Dashboard Development",
+      "MIS Reporting",
+      "LTV Analysis",
+      "Cohort Retention",
       "A/B Testing",
     ],
   },
   {
-    title: "Programming",
-    skills: ["Python", "Java", "C++", "JavaScript", "MATLAB", "SQL"],
+    title: "Business & Strategy",
+    category: "core",
+    badge: "Business Acumen",
+    description: "Translating ambiguous operational questions into structured evidence and workflows",
+    skills: [
+      "Business Analysis",
+      "Business Problem Solving",
+      "Data-Driven Decision Making",
+      "Process Analysis",
+      "Reporting Automation",
+      "Funnel Optimization",
+      "Sales Performance Analysis",
+      "KPI Definition",
+    ],
   },
   {
-    title: "Software Engineering",
+    title: "Software & Engineering",
+    category: "technical",
+    badge: "Technical Depth",
+    description: "Solid computer science and backend engineering foundation",
     skills: [
+      "Java",
+      "C++",
+      "REST APIs",
+      "Git & GitHub",
+      "Backend Development",
       "DSA",
       "OOP",
-      "Backend Development",
-      "REST APIs",
+      "Pytest / Automated Testing",
       "FastAPI",
-      "System Design",
-      "Testing (Pytest/JUnit)",
-      "Git & GitHub",
-      "Docker",
-      "Linux",
     ],
   },
   {
-    title: "Databases & Warehouses",
-    skills: ["MySQL", "MongoDB", "DuckDB", "PostgreSQL", "SQLite WAL", "Star Schema"],
-  },
-  {
-    title: "AI / ML / CV",
+    title: "Databases & Tools",
+    category: "tools",
+    badge: "Infrastructure",
+    description: "Data storage, transformation engines, and developer environment",
     skills: [
-      "YOLOv8",
-      "OpenCV",
-      "NumPy",
-      "PyTorch",
-      "NLP",
-      "RAG",
-      "FAISS",
-      "Embeddings",
-      "Computer Vision",
-      "Stereo Vision",
+      "MySQL",
+      "PostgreSQL",
+      "DuckDB",
+      "SQLite (WAL)",
+      "Power Query",
+      "Linux",
+      "Docker",
     ],
-  },
-  {
-    title: "Web & Portals",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Streamlit", "Plotly"],
   },
 ];
 
@@ -459,29 +483,29 @@ export const CAREER_TIMELINE: TimelineItem[] = [
   },
   {
     year: "2023",
-    title: "Leadership Roles",
+    title: "Leadership at Scale",
     subtitle: "Institute Indian Games Secretary · Inter IIT Marketing Manager",
     detail:
-      "Managed ₹0.3M+ budget, 10+ events with 1,000+ participants, and marketing for the 56th Inter-IIT Sports Meet.",
+      "Led 36 conveners, managed institute events with 1,000+ participants, and coordinated marketing for the 56th Inter-IIT Sports Meet across 23 IITs.",
   },
   {
     year: "2024",
     title: "NCAIR Research Intern",
     subtitle: "Computer Vision · IIT Bombay",
     detail:
-      "Real-time pose detection with YOLOv8, stereo vision, and modular data pipelines.",
+      "Real-time pose detection with YOLOv8, stereo vision, and asynchronous data processing pipelines.",
   },
   {
     year: "2025",
     title: "IIT Bombay Graduation",
-    subtitle: "Technical projects · Analytics work · Open-source contributions",
+    subtitle: "Data Analytics · Backend Systems · Open-Source Projects",
   },
   {
     year: "2025–Present",
     title: "Business Analyst",
     subtitle: "Emoha Elder Care · Bangalore",
     detail:
-      "Sales analytics, MIS dashboards, lead funnel optimization, and cross-functional team support.",
+      "Sales & revenue analytics, automated MIS dashboards, lead funnel optimization, and Customer Lifetime Value (LTV) cohort modeling.",
   },
 ];
 
@@ -499,16 +523,16 @@ export const LEADERSHIP_ROLES: LeadershipRole[] = [
     org: "IIT Bombay",
     period: "April 2023 – March 2024",
     bullets: [
-      "Managed ₹0.3M+ budget for institute-wide athletic events.",
-      "Organized 10+ events with 1,000+ participants, led 36 conveners.",
-      "Managed 4 Kabaddi/Kho-Kho teams; formed IIT Bombay's first girls' Kabaddi team.",
-      "Launched a YouTube channel with 13K+ views.",
+      "Managed budget and operations for institute-wide athletic and sports events.",
+      "Organized 10+ events with 1,000+ participants and led a team of 36 student conveners.",
+      "Managed institute Kabaddi/Kho-Kho teams and spearheaded the formation of IIT Bombay's first girls' Kabaddi team.",
+      "Launched digital outreach initiatives including a YouTube channel reaching 13K+ views.",
     ],
     metrics: [
-      { value: "₹0.3M+", label: "Budget Managed" },
+      { value: "36", label: "Conveners Led" },
       { value: "10+", label: "Events Organized" },
       { value: "1,000+", label: "Participants" },
-      { value: "36", label: "Conveners Led" },
+      { value: "IIT Bombay", label: "Campus Leadership" },
     ],
   },
   {
@@ -516,14 +540,14 @@ export const LEADERSHIP_ROLES: LeadershipRole[] = [
     org: "56th Inter-IIT Sports Meet",
     period: "June 2023 – December 2023",
     bullets: [
-      "Marketing and operations for an event with 2,500 participants and 18,000+ footfall.",
-      "Coordinated stakeholders across 23 IITs with a ₹60M budget.",
+      "Led marketing and operational coordination for a national event hosting 2,500 athletes and 18,000+ footfall.",
+      "Coordinated cross-functional stakeholders across 23 IITs to ensure seamless execution.",
     ],
     metrics: [
-      { value: "2,500", label: "Participants" },
+      { value: "2,500", label: "Athletes" },
       { value: "18K+", label: "Footfall" },
-      { value: "₹60M", label: "Event Budget" },
       { value: "23", label: "IITs Coordinated" },
+      { value: "National", label: "Inter-IIT Event" },
     ],
   },
 ];
@@ -535,19 +559,9 @@ export interface Achievement {
 }
 
 export const ACHIEVEMENTS: Achievement[] = [
-  { value: "IIT Bombay", label: "Graduate", detail: "B.Tech 2021–2025" },
-  {
-    value: "98.03",
-    label: "Percentile — JEE Mains",
-  },
-  {
-    value: "95.3",
-    label: "Percentile — JEE Advanced",
-  },
-  { value: "300+", label: "DSA Problems Solved" },
-  {
-    value: "Excellence",
-    label: "Certificate — NCAIR Research",
-    detail: "IIT Bombay",
-  },
+  { value: "IIT Bombay", label: "Graduate", detail: "B.Tech Class of 2025" },
+  { value: "98.03 %ile", label: "JEE Mains", detail: "National Top Percentile" },
+  { value: "95.3 %ile", label: "JEE Advanced", detail: "Top Engineering Entrance" },
+  { value: "300+", label: "DSA Solved", detail: "Algorithmic Problem Solving" },
+  { value: "Excellence", label: "Research Certificate", detail: "NCAIR, IIT Bombay" },
 ];

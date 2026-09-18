@@ -13,40 +13,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ajit Pal Singh — Business Analyst · Data Analytics · Software Engineer",
+  title: "Ajit Pal Singh — Data Analyst | Business Analyst | IIT Bombay Graduate",
   description:
-    "Portfolio of Ajit Pal Singh — IIT Bombay graduate, Business Analyst at Emoha Elder Care, Bangalore. Specializing in data analytics, business intelligence, software engineering, and AI/ML.",
+    "Portfolio of Ajit Pal Singh — IIT Bombay graduate and Business Analyst in Bangalore. Turning business data into actionable insights through SQL, Advanced Excel, Power BI, Python, and reporting automation.",
   keywords: [
     "Ajit Pal Singh",
-    "Ajit Pal Singh IIT Bombay",
-    "Business Analyst Bangalore",
-    "Data Analyst Bangalore",
-    "Business Intelligence Analyst",
-    "Power BI Analyst",
-    "Data Analyst IIT Bombay",
-    "Software Engineer IIT Bombay",
-    "Python Developer",
-    "Backend Developer",
+    "Data Analyst",
+    "Business Analyst",
+    "Product Analyst",
+    "BI Analyst",
+    "MIS Analyst",
+    "SQL",
+    "Excel",
+    "Power BI",
+    "Python",
+    "Zoho Analytics",
+    "IIT Bombay",
+    "Customer Lifetime Value",
+    "LTV Analysis",
+    "Reporting Automation",
+    "Bangalore",
   ],
   authors: [{ name: "Ajit Pal Singh" }],
+  creator: "Ajit Pal Singh",
   openGraph: {
-    title: "Ajit Pal Singh — Business Analyst · Data Analytics · Software Engineer",
+    title: "Ajit Pal Singh — Data Analyst | Business Analyst | IIT Bombay Graduate",
     description:
-      "IIT Bombay graduate working at the intersection of business, data, and technology.",
+      "Turning business data into actionable insights through SQL, Excel, Power BI, Python, and automation.",
     type: "website",
     locale: "en_IN",
     siteName: "Ajit Pal Singh Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ajit Pal Singh — Business Analyst · Data Analytics · Software Engineer",
+    title: "Ajit Pal Singh — Data Analyst | Business Analyst | IIT Bombay Graduate",
     description:
-      "IIT Bombay graduate working at the intersection of business, data, and technology.",
+      "Turning business data into actionable insights through SQL, Excel, Power BI, Python, and automation.",
   },
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"

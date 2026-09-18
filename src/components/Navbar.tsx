@@ -9,7 +9,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -29,45 +29,48 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-surface/80 backdrop-blur-xl border-b border-border shadow-sm"
-          : "bg-transparent"
+          ? "bg-surface/90 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-background/80 backdrop-blur-sm"
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo / Name */}
           <a
             href="#home"
-            className="font-mono text-sm font-semibold tracking-tight text-foreground hover:text-accent transition-colors"
+            className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm sm:text-base"
           >
-            {PERSONAL.name.split(" ")[0].toLowerCase()}
-            <span className="text-accent">.</span>
+            <span className="font-mono text-accent font-bold">APS</span>
+            <span className="text-border">|</span>
+            <span className="hidden sm:inline text-xs font-mono text-muted">Data &amp; Business Analyst</span>
           </a>
 
-          {/* Desktop nav */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 text-sm text-muted hover:text-foreground transition-colors rounded-md hover:bg-surface-alt"
+                className="px-3 py-1.5 text-xs sm:text-sm font-medium text-muted hover:text-foreground hover:bg-surface-alt rounded-md transition-colors"
               >
                 {item.label}
               </a>
             ))}
+
+            {/* Resume Button */}
             <a
               href={PERSONAL.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-3 px-4 py-2 text-sm font-medium bg-accent text-white rounded-md hover:bg-accent-light transition-colors"
+              className="ml-3 inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-medium bg-accent text-white rounded-lg hover:bg-accent-light transition-colors shadow-sm"
             >
-              Resume
+              Resume ↗
             </a>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 text-muted hover:text-foreground transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -100,15 +103,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-surface/95 backdrop-blur-xl border-b border-border"
+            className="lg:hidden bg-surface border-b border-border shadow-lg"
           >
             <div className="px-4 py-4 space-y-1">
               {NAV_ITEMS.map((item) => (
@@ -116,19 +119,21 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-3 text-base text-muted hover:text-foreground hover:bg-surface-alt rounded-md transition-colors"
+                  className="block px-3 py-2.5 text-sm font-medium text-muted hover:text-foreground hover:bg-surface-alt rounded-lg transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
-              <a
-                href={PERSONAL.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-3 py-3 text-base font-medium text-accent"
-              >
-                Download Resume ↗
-              </a>
+              <div className="pt-2 border-t border-border">
+                <a
+                  href={PERSONAL.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center px-4 py-2.5 text-sm font-medium bg-accent text-white rounded-lg shadow-sm"
+                >
+                  View / Download Resume ↗
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
