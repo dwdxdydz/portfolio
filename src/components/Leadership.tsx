@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export default function Leadership() {
   return (
-    <section id="leadership" className="py-12 sm:py-16 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="leadership" className="py-8 sm:py-10 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,12 +22,12 @@ export default function Leadership() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Campus Leadership &amp; Stakeholder Management
           </h2>
-          <p className="mt-3 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+          <p className="mt-2.5 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
             Leading cross-functional student teams, managing operations, and executing institute-scale events at IIT Bombay.
           </p>
         </motion.div>
 
-        <div className="mt-12 space-y-8">
+        <div className="mt-8 space-y-6">
           {LEADERSHIP_ROLES.map((role, i) => (
             <motion.div
               key={role.title}
@@ -37,7 +37,7 @@ export default function Leadership() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6 pb-4 border-b border-zinc-200/80 dark:border-zinc-800/80">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5 pb-4 border-b border-zinc-200/80 dark:border-zinc-800/80">
                 <div>
                   <h3 className="text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">{role.title}</h3>
                   <p className="text-accent font-bold text-sm">{role.org}</p>
@@ -48,11 +48,11 @@ export default function Leadership() {
               </div>
 
               {/* Metrics row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
                 {role.metrics.map((m) => (
                   <div
                     key={m.label}
-                    className="text-center p-3.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 shadow-2xs"
+                    className="text-center p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 shadow-2xs"
                   >
                     <div className="text-lg font-bold font-mono text-zinc-950 dark:text-zinc-50">
                       {m.value}
@@ -62,7 +62,7 @@ export default function Leadership() {
                 ))}
               </div>
 
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {role.bullets.map((bullet, idx) => (
                   <li
                     key={idx}

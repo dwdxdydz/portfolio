@@ -39,17 +39,17 @@ function MailIcon() {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-12 sm:py-16 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="contact" className="py-8 sm:py-10 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          className="apple-glass-card p-8 sm:p-14 rounded-3xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-sm"
+          className="apple-glass-card p-6 sm:p-12 rounded-3xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
           {/* Apple Frosted Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 text-xs font-mono font-bold text-zinc-900 dark:text-zinc-100 mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 text-xs font-mono font-bold text-zinc-900 dark:text-zinc-100 mb-3 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span>Open to Opportunities</span>
           </div>
@@ -57,15 +57,15 @@ export default function Contact() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Let&apos;s Connect &amp; Build Together
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-700 dark:text-zinc-300 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-base sm:text-lg text-zinc-700 dark:text-zinc-300 max-w-xl mx-auto leading-relaxed">
             I am actively exploring roles in <span className="text-zinc-950 dark:text-zinc-50 font-bold">Data Analytics</span>, <span className="text-zinc-950 dark:text-zinc-50 font-bold">Business Analysis</span>, <span className="text-zinc-950 dark:text-zinc-50 font-bold">Product Analytics</span>, and <span className="text-zinc-950 dark:text-zinc-50 font-bold">BI / MIS</span>.
           </p>
 
           {/* Primary Email CTA Pill */}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 flex justify-center">
             <a
               href={`mailto:${PERSONAL.email}`}
-              className="apple-pill-btn px-7 py-3.5 bg-accent text-white rounded-full font-semibold text-base hover:bg-accent-light shadow-[0_4px_24px_rgba(0,102,204,0.35)] hover:shadow-[0_8px_32px_rgba(0,102,204,0.5)]"
+              className="apple-pill-btn px-7 py-3 bg-accent text-white rounded-full font-semibold text-base hover:bg-accent-light shadow-[0_4px_24px_rgba(0,102,204,0.35)] hover:shadow-[0_8px_32px_rgba(0,102,204,0.5)]"
             >
               <MailIcon />
               {PERSONAL.email}
@@ -73,7 +73,7 @@ export default function Contact() {
           </div>
 
           {/* Frosted Social & Resume Pills */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <a
               href={PERSONAL.linkedin}
               target="_blank"

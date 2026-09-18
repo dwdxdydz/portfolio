@@ -146,8 +146,8 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-12 sm:py-16 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-8 sm:py-10 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -163,13 +163,13 @@ export default function Projects() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Featured Projects &amp; Software Systems
           </h2>
-          <p className="mt-3 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+          <p className="mt-2.5 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
             Practical applications spanning analytics frameworks, modern data pipelines, automated backend systems, and AI tools.
           </p>
         </motion.div>
 
         {/* Apple Category Filter Pills */}
-        <div className="mt-8 flex flex-wrap gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
           {PROJECT_CATEGORIES.map((cat) => (
             <button
               key={cat.key}
@@ -186,7 +186,7 @@ export default function Projects() {
         </div>
 
         {/* Project Grid */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project) => (
               <motion.div
@@ -221,7 +221,7 @@ export default function Projects() {
 
                   {/* Recruiter-Friendly Key Technical Concept Box */}
                   {project.concept && (
-                    <div className="mt-4 p-3.5 rounded-2xl bg-zinc-100/90 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs text-zinc-800 dark:text-zinc-200 leading-relaxed">
+                    <div className="mt-3.5 p-3.5 rounded-2xl bg-zinc-100/90 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs text-zinc-800 dark:text-zinc-200 leading-relaxed">
                       <span className="font-bold text-zinc-950 dark:text-zinc-100 font-mono block mb-1">
                         💡 Key Concept:
                       </span>
@@ -230,9 +230,9 @@ export default function Projects() {
                   )}
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-5">
                   {/* Tech tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tech.slice(0, 5).map((t) => (
                       <span
                         key={t}
@@ -249,7 +249,7 @@ export default function Projects() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+                  <div className="flex items-center gap-3 pt-3.5 border-t border-zinc-200/80 dark:border-zinc-800/80">
                     {project.caseStudy && (
                       <button
                         onClick={() => setCaseStudyProject(project)}
@@ -278,10 +278,10 @@ export default function Projects() {
 
         {/* Show More / Show Less Button */}
         {filtered.length > 4 && (
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="apple-pill-btn px-6 py-3 text-sm font-semibold bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 hover:border-accent text-zinc-900 dark:text-zinc-100 rounded-full shadow-xs hover:shadow"
+              className="apple-pill-btn px-6 py-2.5 sm:py-3 text-sm font-semibold bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 hover:border-accent text-zinc-900 dark:text-zinc-100 rounded-full shadow-xs hover:shadow"
             >
               {showAll ? (
                 <>

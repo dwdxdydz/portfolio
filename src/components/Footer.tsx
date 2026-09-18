@@ -4,8 +4,8 @@ import { PERSONAL } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-300/70 dark:border-zinc-800/70 py-8 relative bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="border-t border-zinc-300/70 dark:border-zinc-800/70 py-6 sm:py-8 relative bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-700 dark:text-zinc-300">
           <p className="font-medium">
             © {new Date().getFullYear()} {PERSONAL.name}. Built with Next.js &amp;

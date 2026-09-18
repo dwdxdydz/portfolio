@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export default function CareerTimeline() {
   return (
-    <section className="py-12 sm:py-16 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-10 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,19 +20,19 @@ export default function CareerTimeline() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">Career Timeline</h2>
-          <p className="mt-3 max-w-xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+          <p className="mt-2.5 max-w-xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
             From engineering foundations at IIT Bombay to business analytics in high-growth operational environments.
           </p>
         </motion.div>
 
-        <div className="mt-12 relative">
+        <div className="mt-8 relative">
           {/* Vertical line with gradient */}
           <div
             className="absolute left-3.5 sm:left-6 top-3 bottom-3 w-px bg-gradient-to-b from-accent/60 via-zinc-300 dark:via-zinc-700 to-transparent"
             aria-hidden="true"
           />
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {CAREER_TIMELINE.map((item, i) => (
               <motion.div
                 key={item.year + item.title}

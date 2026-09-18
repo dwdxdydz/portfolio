@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-12 sm:py-16 relative">
+    <section id="experience" className="py-8 sm:py-10 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,12 +22,12 @@ export default function Experience() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Professional Experience
           </h2>
-          <p className="mt-3 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+          <p className="mt-2.5 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
             Delivering data-driven insights, automated reporting, and operational efficiency across business teams.
           </p>
         </motion.div>
 
-        <div className="mt-12 space-y-8">
+        <div className="mt-8 space-y-6">
           {EXPERIENCES.map((exp, i) => (
             <motion.div
               key={exp.company + exp.role}
@@ -37,7 +37,7 @@ export default function Experience() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 pb-5 border-b border-zinc-200/80 dark:border-zinc-800/80">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">{exp.role}</h3>
                   <div className="flex items-center gap-2 mt-1">
@@ -52,16 +52,16 @@ export default function Experience() {
                 </div>
               </div>
 
-              <ul className="mt-6 space-y-3.5">
+              <ul className="mt-5 space-y-3">
                 {exp.bullets.map((bullet, j) => (
                   <li key={j} className="flex gap-3 text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
-                    <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap items-center gap-2">
+              <div className="mt-5 pt-5 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap items-center gap-2">
                 <span className="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 mr-1">Tools:</span>
                 {exp.tech.map((t) => (
                   <span

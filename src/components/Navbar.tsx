@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeHover, setActiveHover] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -25,6 +26,8 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  const isResumeActive = activeHover === null || activeHover === "resume";
+
   return (
     <header className="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
       <nav
@@ -36,40 +39,51 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="px-4 sm:px-6">
-          <div className="flex items-center justify-between h-14 sm:h-15">
-            {/* 1. Navbar Brand / Title: Ajit | Business Analyst */}
+        <div className="px-4 sm:px-5">
+          <div className="flex items-center justify-between h-14">
+            {/* 1. Navbar Brand: ONLY "Ajit" */}
             <a
               href="#home"
-              className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm sm:text-base group shrink-0"
+              className="flex items-center font-bold text-accent text-lg sm:text-xl tracking-tight hover:opacity-85 transition-opacity shrink-0"
+              aria-label="Ajit - Home"
             >
-              <span className="font-bold text-accent text-base sm:text-lg tracking-tight">
-                Ajit
-              </span>
-              <span className="text-zinc-300 dark:text-zinc-700 font-normal">|</span>
-              <span className="text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-accent transition-colors whitespace-nowrap">
-                Business Analyst
-              </span>
+              Ajit
             </a>
 
-            {/* 2. Desktop Navigation: Consistent Height, Alignment & Vertical Positioning */}
-            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex items-center justify-center h-8 px-2.5 xl:px-3 text-xs xl:text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200 whitespace-nowrap"
-                >
-                  {item.label}
-                </a>
-              ))}
+            {/* 2. Desktop Navigation: Unified interactive active/hover pill system */}
+            <div
+              className="hidden lg:flex items-center gap-0.5 xl:gap-1"
+              onMouseLeave={() => setActiveHover(null)}
+            >
+              {NAV_ITEMS.map((item) => {
+                const isActive = activeHover === item.href;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onMouseEnter={() => setActiveHover(item.href)}
+                    className={`inline-flex items-center justify-center h-8 px-2.5 xl:px-3 text-xs xl:text-[13px] font-medium rounded-full transition-all duration-200 ease-out whitespace-nowrap will-change-transform ${
+                      isActive
+                        ? "bg-accent text-white shadow-[0_2px_10px_rgba(0,102,204,0.3)] scale-[1.04]"
+                        : "text-zinc-700 dark:text-zinc-300 hover:text-foreground bg-transparent scale-100"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
 
-              {/* 3. Resume Button Hover Interaction: Smooth Subtle Scale (1.04x) & Depth Shadow */}
+              {/* 3. Resume Button: Default active-looking state that transfers on hover */}
               <a
                 href={PERSONAL.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 inline-flex items-center justify-center gap-1.5 h-8 px-4 text-xs xl:text-sm font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,102,204,0.3)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,102,204,0.42)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap will-change-transform"
+                onMouseEnter={() => setActiveHover("resume")}
+                className={`ml-1 xl:ml-2 inline-flex items-center justify-center gap-1.5 h-8 px-3.5 xl:px-4 text-xs xl:text-[13px] font-semibold rounded-full transition-all duration-200 ease-out whitespace-nowrap will-change-transform ${
+                  isResumeActive
+                    ? "bg-accent text-white shadow-[0_2px_10px_rgba(0,102,204,0.3)] scale-[1.04]"
+                    : "text-zinc-700 dark:text-zinc-300 hover:text-foreground bg-transparent scale-100"
+                }`}
               >
                 Resume ↗
               </a>

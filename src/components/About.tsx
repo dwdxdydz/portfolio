@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-8 sm:py-10 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export default function About() {
             Bridging Business Context &amp; Analytical Execution
           </h2>
 
-          <div className="mt-8 space-y-5 text-zinc-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
+          <div className="mt-6 space-y-4 text-zinc-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
             <p>
               I am an <span className="text-zinc-950 dark:text-zinc-50 font-semibold">IIT Bombay graduate</span> currently working as a <span className="text-zinc-950 dark:text-zinc-50 font-semibold">Business Analyst</span> in Bangalore. My core work revolves around analyzing complex business data, building interactive dashboards, and automating operational reporting.
             </p>
@@ -38,7 +38,7 @@ export default function About() {
           </div>
 
           {/* 4 Apple Bento Frosted Glass Cards */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="apple-glass-card p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
               <div className="text-2xl mb-3">📊</div>
               <h3 className="font-bold text-zinc-900 dark:text-zinc-100 text-base">Business &amp; Data Analysis</h3>

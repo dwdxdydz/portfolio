@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-12 sm:py-16 relative">
+    <section id="achievements" className="py-8 sm:py-10 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,11 +24,11 @@ export default function Achievements() {
           </h2>
         </motion.div>
 
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
           {ACHIEVEMENTS.map((a, i) => (
             <motion.div
               key={a.label}
-              className="apple-glass-card p-5 sm:p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs text-center flex flex-col justify-between"
+              className="apple-glass-card p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs text-center flex flex-col justify-between"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -38,10 +38,10 @@ export default function Achievements() {
                 <div className="text-2xl sm:text-3xl font-bold font-mono text-accent tracking-tight">
                   {a.value}
                 </div>
-                <p className="mt-2 text-xs sm:text-sm font-bold text-zinc-950 dark:text-zinc-50">{a.label}</p>
+                <p className="mt-1.5 text-xs sm:text-sm font-bold text-zinc-950 dark:text-zinc-50">{a.label}</p>
               </div>
               {a.detail && (
-                <p className="mt-1.5 text-xs text-zinc-600 dark:text-zinc-400 font-medium">{a.detail}</p>
+                <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400 font-medium">{a.detail}</p>
               )}
             </motion.div>
           ))}

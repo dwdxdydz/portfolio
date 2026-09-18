@@ -62,18 +62,18 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center pt-24 sm:pt-28 pb-10 sm:pb-14 overflow-hidden"
+      className="relative flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 overflow-hidden"
     >
       {/* Subtle grid backdrop */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Apple Frosted Glass Positioning Tag */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl text-xs font-mono font-medium text-zinc-800 dark:text-zinc-200 shadow-sm mb-5"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl text-xs font-mono font-medium text-zinc-800 dark:text-zinc-200 shadow-sm mb-4"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>IIT Bombay &apos;25 · Business Analyst · Bangalore</span>
@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Supporting Line */}
         <motion.p
-          className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal"
+          className="mt-3.5 max-w-2xl mx-auto text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -111,7 +111,7 @@ export default function Hero() {
 
         {/* 4 Apple Pill CTA Buttons */}
         <motion.div
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          className="mt-7 flex flex-wrap items-center justify-center gap-3"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.25 }}
@@ -161,7 +161,7 @@ export default function Hero() {
 
         {/* Recruiter Quick Fact Anchors */}
         <motion.div
-          className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left"
+          className="mt-8 sm:mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
