@@ -126,6 +126,7 @@ function CaseStudyModal({
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
+  const [showAll, setShowAll] = useState(false);
   const [caseStudyProject, setCaseStudyProject] = useState<Project | null>(null);
 
   const filtered =
@@ -134,6 +135,13 @@ export default function Projects() {
       : filter === "featured"
       ? PROJECTS.filter((p) => p.category === "featured" || p.featured)
       : PROJECTS.filter((p) => p.category === filter);
+
+  const displayedProjects = showAll ? filtered : filtered.slice(0, 4);
+
+  const handleFilterChange = (key: string) => {
+    setFilter(key);
+    setShowAll(false);
+  };
 
   return (
     <section id="projects" className="py-24 sm:py-32">
@@ -156,7 +164,7 @@ export default function Projects() {
           {PROJECT_CATEGORIES.map((cat) => (
             <button
               key={cat.key}
-              onClick={() => setFilter(cat.key)}
+              onClick={() => handleFilterChange(cat.key)}
               className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
                 filter === cat.key
                   ? "bg-accent text-white"
@@ -171,7 +179,7 @@ export default function Projects() {
         {/* Project grid */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
+            {displayedProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -234,6 +242,32 @@ export default function Projects() {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Show More / Show Less Button */}
+        {filtered.length > 4 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium bg-surface border border-border hover:border-accent/50 text-foreground rounded-lg transition-all shadow-sm hover:shadow"
+            >
+              {showAll ? (
+                <>
+                  Show Less
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="18 15 12 9 6 15" />
+                  </svg>
+                </>
+              ) : (
+                <>
+                  Show More ({filtered.length - 4} more projects)
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Case Study Modal */}
