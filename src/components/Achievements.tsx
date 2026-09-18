@@ -24,27 +24,27 @@ export default function Achievements() {
           </h2>
         </motion.div>
 
-        {/* 5-Card Concise Metric Grid with Zero Overflow */}
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5">
+        {/* 5-Card Concise Metric Grid with Snug, Balanced Padding */}
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
           {ACHIEVEMENTS.map((a, i) => (
             <motion.div
               key={a.label}
-              className="apple-glass-card p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs text-center flex flex-col justify-between items-center min-h-[110px]"
+              className="apple-glass-card px-3 py-2.5 sm:py-3 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs text-center flex flex-col justify-center items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.3, delay: i * 0.05 }}
             >
               <div className="w-full">
-                <div className="text-base sm:text-lg lg:text-[18px] xl:text-xl font-bold text-accent tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                <div className="text-base sm:text-lg lg:text-[17px] xl:text-lg font-bold text-accent tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
                   {a.value}
                 </div>
-                <p className="mt-1 text-xs sm:text-[13px] font-bold text-zinc-950 dark:text-zinc-50 leading-tight">
+                <p className="mt-0.5 text-xs sm:text-[12.5px] font-bold text-zinc-950 dark:text-zinc-50 leading-tight">
                   {a.label}
                 </p>
               </div>
               {a.detail && (
-                <p className="mt-1 text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 font-medium leading-snug">
+                <p className="mt-0.5 text-[11px] text-zinc-600 dark:text-zinc-400 font-medium leading-tight">
                   {a.detail}
                 </p>
               )}

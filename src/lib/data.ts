@@ -58,7 +58,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     role: "Research Intern — Computer Vision",
-    company: "NCAIR, IIT Bombay",
+    company: "NCAIR",
     location: "Mumbai",
     period: "May 2024 – July 2024",
     bullets: [
@@ -153,6 +153,14 @@ export const AI_AUTOMATION_PRACTICES: AIAutomationItem[] = [
     description:
       "Utilized AI models to assist with code reviews, debug backend logic, scaffold automated tests with Pytest, and optimize SQL query execution plans.",
     tools: ["Python", "Pytest", "Git", "AI Coding"],
+  },
+  {
+    title: "SQL Synthesis & Query Tuning",
+    category: "Analytics Productivity",
+    icon: "💡",
+    description:
+      "Employed LLM prompts to rapidly construct complex multi-table joins, window functions, and CTEs, accelerating ad-hoc data investigations and query tuning.",
+    tools: ["SQL", "Window Functions", "CTEs", "LLM Prompting"],
   },
 ];
 
@@ -491,7 +499,7 @@ export const CAREER_TIMELINE: TimelineItem[] = [
   {
     year: "2024",
     title: "NCAIR Research Intern",
-    subtitle: "Computer Vision · IIT Bombay",
+    subtitle: "Computer Vision · Deep Learning",
     detail:
       "Real-time pose detection with YOLOv8, stereo vision, and asynchronous data processing pipelines.",
   },
