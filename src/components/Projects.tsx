@@ -131,6 +131,8 @@ export default function Projects() {
   const filtered =
     filter === "all"
       ? PROJECTS
+      : filter === "featured"
+      ? PROJECTS.filter((p) => p.category === "featured" || p.featured)
       : PROJECTS.filter((p) => p.category === filter);
 
   return (
@@ -144,8 +146,8 @@ export default function Projects() {
         >
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Selected Work</h2>
           <p className="mt-4 max-w-2xl text-muted text-lg">
-            Real projects with real code — from automated flight tracking to AI document
-            assistants and Fourier-drawn animations.
+            Real projects with real code — from SaaS unit economics & growth experimentation
+            to modern data stack pipelines, flight tracking, and AI systems.
           </p>
         </motion.div>
 

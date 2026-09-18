@@ -1,4 +1,4 @@
-// All portfolio data in one place — every fact is sourced from the resume and GitHub repos.
+// All portfolio data in one place — every fact is sourced from the resume, GitHub repos, and verified projects.
 
 export const PERSONAL = {
   name: "Ajit Pal Singh",
@@ -89,6 +89,7 @@ export interface Project {
   id: string;
   title: string;
   category: "featured" | "ai-ml" | "analytics" | "engineering" | "dsa";
+  featured?: boolean;
   summary: string;
   tech: string[];
   github?: string;
@@ -104,6 +105,109 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  {
+    id: "saas-churn",
+    title: "SaaS Unit Economics & Churn Diagnosis Engine",
+    category: "analytics",
+    featured: true,
+    summary:
+      "A B2B SaaS financial modeling and churn diagnosis engine tracking MRR/ARR waterfalls, Net Revenue Retention (NRR), CAC payback, and triangular cohort retention decay. Features an automated root-cause analyzer connecting sales discount policies to churn velocity.",
+    tech: ["Python", "Pandas", "Streamlit", "Plotly", "Cohort Analysis", "Financial Modeling", "Pytest"],
+    github: "https://github.com/dwdxdydz/saas-churn-unit-economics",
+    caseStudy: {
+      problem:
+        "Topline SaaS subscription revenue growth was masking an underlying churn leak in entry-level tiers, making it difficult for leadership to determine whether the problem was product adoption, onboarding friction, or discounting traps.",
+      approach:
+        "Engineered an automated unit economics model calculating LTV, CAC, CAC Payback, NRR, and GRR across customer cohorts, combined with a statistical root-cause diagnostic engine evaluating discount and support ticket correlations.",
+      architecture:
+        "24-Month Customer Lifecycle Ingestion → Financial Model Engine (MRR/ARR Waterfall) → Triangular Cohort Retention Matrix (Logo & Revenue) → Churn Diagnosis Engine → Streamlit Executive Portal + 5-Slide Leadership Deck.",
+      decisions:
+        "Segmented cohorts by both acquisition month and pricing tier. Implemented separate logo vs. net revenue retention matrices to highlight expansion counteracting churn in higher tiers. Applied discount elasticity modeling.",
+      results:
+        "Identified that accounts with >20% upfront discounts experienced 1.8x higher churn rates by Month 6, and established that 48% of all churn occurred in the first 90 days. Built actionable executive recommendations to compress payback from 16.4 to 10.8 months.",
+      learnings:
+        "Deepened expertise in SaaS unit economics, LTV:CAC modeling, cohort decay mathematics, and translating analytical outputs into executive decision frameworks.",
+      future:
+        "Predictive churn scoring with gradient boosted trees and integration with real CRM webhooks.",
+    },
+  },
+  {
+    id: "growth-ab-testing",
+    title: "Growth Funnel & A/B Experimentation Framework",
+    category: "analytics",
+    featured: true,
+    summary:
+      "An experimentation and growth analytics platform for multi-step e-commerce checkout funnel drop-off analysis, Two-Proportion Z-tests, Welch's T-tests for Revenue per Visitor (RPV), and statistical sample size/power planning.",
+    tech: ["Python", "SciPy", "Statsmodels", "Streamlit", "Plotly", "A/B Testing", "Funnel Analysis", "Pytest"],
+    github: "https://github.com/dwdxdydz/growth-funnel-ab-testing",
+    caseStudy: {
+      problem:
+        "E-commerce platforms experience substantial revenue drop-offs between cart addition and checkout completion. Product and growth teams needed a statistically rigorous testing framework to evaluate checkout variants without false-positive winner bias.",
+      approach:
+        "Built an end-to-end clickstream event processing engine paired with a statistical hypothesis testing harness calculating Z-statistics, p-values, 95% confidence intervals, relative lift, and sample size requirements based on statistical power (1 - β = 0.80).",
+      architecture:
+        "Clickstream Event Log Generator (10,000+ sessions) → Step Progression & Drop-off Calculator → Statistical A/B Harness (Two-Proportion Z-test + Welch's T-test) → Interactive Streamlit Growth Portal with Sample Size Planner.",
+      decisions:
+        "Used Welch's T-test to account for unequal variances in revenue per visitor distributions. Implemented pre-experiment sample size calculator with adjustable Minimum Detectable Effect (MDE) and alpha levels to prevent premature experiment stopping.",
+      results:
+        "Successfully simulated a frictionless 1-click checkout variant proving a statistically significant +18.4% relative conversion lift (p < 0.001) and +$4.20 increase in Revenue per Visitor.",
+      learnings:
+        "Mastery of hypothesis formulation, Type I / Type II error trade-offs, minimum detectable effect modeling, and conversion rate optimization (CRO) methodologies.",
+      future:
+        "Sequential testing support (mSPRT) to allow continuous monitoring without alpha inflation.",
+    },
+  },
+  {
+    id: "ecommerce-mds",
+    title: "Modern Data Stack (MDS) E-Commerce Pipeline",
+    category: "engineering",
+    featured: true,
+    summary:
+      "A dimensional data warehouse pipeline using Kimball star-schema modeling, modular staging/marts SQL transformations with DuckDB, automated dbt-style schema quality tests, and rolling Z-score revenue anomaly alerting.",
+    tech: ["DuckDB", "Modular SQL", "Python", "Data Quality", "Z-Score Anomaly Detection", "Streamlit", "Pytest"],
+    github: "https://github.com/dwdxdydz/ecommerce-mds-pipeline",
+    caseStudy: {
+      problem:
+        "Raw transactional OLTP databases are optimized for writes, resulting in slow analytical queries, missing data validation, and lack of proactive alerting when revenue anomalies occur.",
+      approach:
+        "Designed a dimensional star-schema warehouse with staging views, customer RFM dimensions, and daily fact tables using DuckDB, coupled with an automated data quality assertion engine and rolling statistical anomaly detection.",
+      architecture:
+        "Raw OLTP Tables (Orders, Customers, Products, Channels) → Staging Views (stg_*) → Dimensional Warehouse Marts (dim_customers, fact_orders, fact_daily_kpis) → Automated Assertion Engine → Rolling 14-Day Z-Score Anomaly Alert Feed.",
+      decisions:
+        "Employed Kimball dimensional modeling with RFM customer segmentation. Embedded strict data assertions (uniqueness, referential integrity, not-null constraints) that execute automatically in CI. Used rolling 14-day Z-scores to filter out day-of-week seasonality.",
+      results:
+        "Delivered sub-50ms analytics query latency across millions of row aggregations with 100% data quality test coverage and automated incident alerts for abnormal revenue swings.",
+      learnings:
+        "Star-schema data architecture, surrogate key management, automated schema assertions, and statistical process control for analytical data pipelines.",
+      future:
+        "Integration with cloud object storage (S3/GCS Parquet) and orchestration with Dagster.",
+    },
+  },
+  {
+    id: "analytics-ingestion",
+    title: "High-Throughput Analytics Ingestion Engine",
+    category: "engineering",
+    summary:
+      "An asynchronous event ingestion service built with FastAPI, Pydantic validation, Token-Bucket Rate Limiting, and an async batch worker that flushes telemetry streams into a high-concurrency WAL-enabled SQL store.",
+    tech: ["FastAPI", "Python", "AsyncIO", "Pydantic", "Token Bucket", "SQLite WAL", "Docker", "Pytest"],
+    github: "https://github.com/dwdxdydz/analytics-ingestion-engine",
+    caseStudy: {
+      problem:
+        "Direct synchronous database writes under spike traffic from thousands of client devices cause connection pool starvation, high API latency, and potential data loss.",
+      approach:
+        "Developed a non-blocking asynchronous ingestion API returning immediate HTTP 202 Accepted, utilizing a Token Bucket rate limiter and an in-memory batch queue worker that flushes events in bulk transactions.",
+      architecture:
+        "Client HTTP Requests → Token Bucket Rate Limiter → FastAPI Ingestion Endpoints (Single & Batch) → In-Memory Async Queue → Periodic/Threshold Batch Worker → Async SQLite WAL Persistence.",
+      decisions:
+        "Enforced strict payload typing via Pydantic. Used asynchronous queues and batch executemany SQL queries to minimize lock times. Enabled WAL (Write-Ahead Logging) for concurrent reads and writes.",
+      results:
+        "Achieved 1,500+ requests/sec ingestion throughput on a single core with sub-5ms response times and zero lost events during traffic burst simulations.",
+      learnings:
+        "Asynchronous concurrency patterns in Python, token-bucket algorithm mechanics, database connection lifecycle management, and containerized deployment practices.",
+      future:
+        "Distributed Redis Streams backend and Kafka partition consumers for multi-node clustering.",
+    },
+  },
   {
     id: "flight-alert",
     title: "Flight Alert System",
@@ -256,7 +360,7 @@ export const PROJECTS: Project[] = [
   {
     id: "sudoku",
     title: "Sudoku Solver",
-    category: "engineering",
+    category: "dsa",
     summary:
       "Sudoku game with an integrated solver. Demonstrates algorithmic thinking, backtracking, and constraint satisfaction — a practical application of core computer science concepts.",
     tech: ["Python"],
@@ -267,9 +371,9 @@ export const PROJECTS: Project[] = [
 export const PROJECT_CATEGORIES = [
   { key: "all", label: "All Projects" },
   { key: "featured", label: "Featured" },
+  { key: "analytics", label: "Analytics & Growth" },
+  { key: "engineering", label: "Engineering & Systems" },
   { key: "ai-ml", label: "AI / ML" },
-  { key: "analytics", label: "Analytics" },
-  { key: "engineering", label: "Engineering" },
   { key: "dsa", label: "DSA" },
 ];
 
@@ -292,11 +396,13 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "KPI Analysis",
       "Sales Analytics",
       "Revenue Analytics",
+      "Cohort Analysis",
+      "A/B Testing",
     ],
   },
   {
     title: "Programming",
-    skills: ["Python", "Java", "C++", "JavaScript", "MATLAB"],
+    skills: ["Python", "Java", "C++", "JavaScript", "MATLAB", "SQL"],
   },
   {
     title: "Software Engineering",
@@ -305,16 +411,17 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "OOP",
       "Backend Development",
       "REST APIs",
+      "FastAPI",
       "System Design",
-      "Testing",
-      "Git",
-      "GitHub",
+      "Testing (Pytest/JUnit)",
+      "Git & GitHub",
+      "Docker",
       "Linux",
     ],
   },
   {
-    title: "Databases",
-    skills: ["MySQL", "MongoDB"],
+    title: "Databases & Warehouses",
+    skills: ["MySQL", "MongoDB", "DuckDB", "PostgreSQL", "SQLite WAL", "Star Schema"],
   },
   {
     title: "AI / ML / CV",
@@ -332,8 +439,8 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
-    title: "Web",
-    skills: ["HTML", "CSS", "JavaScript"],
+    title: "Web & Portals",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Streamlit", "Plotly"],
   },
 ];
 
