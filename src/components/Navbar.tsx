@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeHover, setActiveHover] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -25,8 +24,6 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
-
-  const isResumeActive = activeHover === null || activeHover === "resume";
 
   return (
     <header className="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
@@ -50,40 +47,24 @@ export default function Navbar() {
               Ajit
             </a>
 
-            {/* 2. Desktop Navigation: Unified interactive active/hover pill system */}
-            <div
-              className="hidden lg:flex items-center gap-0.5 xl:gap-1"
-              onMouseLeave={() => setActiveHover(null)}
-            >
-              {NAV_ITEMS.map((item) => {
-                const isActive = activeHover === item.href;
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onMouseEnter={() => setActiveHover(item.href)}
-                    className={`inline-flex items-center justify-center h-8 px-2.5 xl:px-3 text-xs xl:text-[13px] font-medium rounded-full transition-all duration-200 ease-out whitespace-nowrap will-change-transform ${
-                      isActive
-                        ? "bg-accent text-white shadow-[0_2px_10px_rgba(0,102,204,0.3)] scale-[1.04]"
-                        : "text-zinc-700 dark:text-zinc-300 hover:text-foreground bg-transparent scale-100"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
+            {/* 2. Desktop Navigation Items */}
+            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex items-center justify-center h-8 px-2.5 xl:px-3 text-xs xl:text-[13px] font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200 whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              ))}
 
-              {/* 3. Resume Button: Default active-looking state that transfers on hover */}
+              {/* 3. Resume Button: ALWAYS PERMANENT BLUE PILL */}
               <a
                 href={PERSONAL.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() => setActiveHover("resume")}
-                className={`ml-1 xl:ml-2 inline-flex items-center justify-center gap-1.5 h-8 px-3.5 xl:px-4 text-xs xl:text-[13px] font-semibold rounded-full transition-all duration-200 ease-out whitespace-nowrap will-change-transform ${
-                  isResumeActive
-                    ? "bg-accent text-white shadow-[0_2px_10px_rgba(0,102,204,0.3)] scale-[1.04]"
-                    : "text-zinc-700 dark:text-zinc-300 hover:text-foreground bg-transparent scale-100"
-                }`}
+                className="ml-1.5 xl:ml-2 inline-flex items-center justify-center gap-1.5 h-8 px-3.5 xl:px-4 text-xs xl:text-[13px] font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,113,227,0.3)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,113,227,0.45)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap will-change-transform"
               >
                 Resume ↗
               </a>
@@ -148,7 +129,7 @@ export default function Navbar() {
                     href={PERSONAL.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center h-10 w-full text-sm font-semibold bg-accent text-white rounded-full shadow-[0_2px_12px_rgba(0,102,204,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                    className="flex items-center justify-center h-10 w-full text-sm font-semibold bg-accent text-white rounded-full shadow-[0_2px_12px_rgba(0,113,227,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                   >
                     View / Download Resume ↗
                   </a>
