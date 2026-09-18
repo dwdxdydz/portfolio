@@ -552,16 +552,76 @@ export const LEADERSHIP_ROLES: LeadershipRole[] = [
   },
 ];
 
-export interface Achievement {
-  value: string;
-  label: string;
-  detail?: string;
+export interface AchievementItem {
+  id: string;
+  title: string;
+  category: string;
+  badge: string;
+  metric: string;
+  metricLabel: string;
+  description: string;
+  highlights: { value: string; label: string }[];
 }
 
-export const ACHIEVEMENTS: Achievement[] = [
-  { value: "IIT Bombay", label: "Graduate", detail: "B.Tech Class of 2025" },
-  { value: "98.03 %ile", label: "JEE Mains", detail: "National Top Percentile" },
-  { value: "95.3 %ile", label: "JEE Advanced", detail: "Top Engineering Entrance" },
-  { value: "300+", label: "DSA Solved", detail: "Algorithmic Problem Solving" },
-  { value: "Excellence", label: "Research Certificate", detail: "NCAIR, IIT Bombay" },
+export const ACHIEVEMENTS: AchievementItem[] = [
+  {
+    id: "iit-bombay",
+    title: "IIT Bombay Graduate",
+    category: "Academic Pedigree",
+    badge: "Class of 2025",
+    metric: "IIT Bombay",
+    metricLabel: "B.Tech Class of 2025",
+    description:
+      "4-year rigorous undergraduate engineering curriculum at India's premier technical institution, building foundational mastery in quantitative modeling, computational systems, and analytical problem-solving.",
+    highlights: [
+      { value: "B.Tech", label: "Degree" },
+      { value: "2021–2025", label: "Duration" },
+      { value: "Top Tier", label: "Selectivity" },
+    ],
+  },
+  {
+    id: "jee-honors",
+    title: "National Engineering Entrance Honors",
+    category: "Competitive Distinctions",
+    badge: "National Top 2%",
+    metric: "98.03 %ile",
+    metricLabel: "JEE Mains (1.2M+ Candidates)",
+    description:
+      "Ranked in the top 2% nationwide in JEE Mains among over 1.2 million aspirants, and secured Category Rank 15 in JEE Advanced — the apex competitive entrance for the Indian Institutes of Technology.",
+    highlights: [
+      { value: "98.03 %ile", label: "JEE Mains" },
+      { value: "Rank 15", label: "JEE Advanced (Cat.)" },
+      { value: "Top 2%", label: "National Standing" },
+    ],
+  },
+  {
+    id: "ncair-research",
+    title: "AI Research & Computer Vision Excellence",
+    category: "Research & Innovation",
+    badge: "NCAIR · IIT Bombay",
+    metric: "Excellence",
+    metricLabel: "Certificate of Excellence",
+    description:
+      "Awarded a Certificate of Excellence at the National Centre of Aerospace Innovation and Research (NCAIR) for developing real-time pose estimation and high-throughput vision data pipelines.",
+    highlights: [
+      { value: "NCAIR", label: "Research Lab" },
+      { value: "YOLOv8 + CV", label: "Architecture" },
+      { value: "Awarded", label: "Excellence Citation" },
+    ],
+  },
+  {
+    id: "algorithmic-rigor",
+    title: "Algorithmic & Analytical Problem Solving",
+    category: "Technical Rigor",
+    badge: "300+ Problems",
+    metric: "300+",
+    metricLabel: "DSA & Analytical Challenges",
+    description:
+      "Demonstrated depth in Data Structures, Algorithms, SQL optimization, and Python data manipulation — translating complex business constraints into efficient, scalable analytical models.",
+    highlights: [
+      { value: "300+", label: "Problems Solved" },
+      { value: "SQL & Python", label: "Core Stack" },
+      { value: "High", label: "Algorithmic Rigor" },
+    ],
+  },
 ];
