@@ -561,7 +561,7 @@ export interface Achievement {
 export const ACHIEVEMENTS: Achievement[] = [
   { value: "IIT Bombay", label: "Graduate", detail: "B.Tech Class of 2025" },
   { value: "98.03 %ile", label: "JEE Mains", detail: "Top 2% Nationwide" },
-  { value: "Rank 15", label: "JEE Advanced", detail: "IIT Entrance (OBC-NCL)" },
+  { value: "95.3 %ile", label: "JEE Advanced", detail: "Top Engineering Entrance" },
   { value: "300+", label: "DSA Solved", detail: "Algorithmic Problems" },
   { value: "Excellence", label: "Research Award", detail: "NCAIR, IIT Bombay" },
 ];
