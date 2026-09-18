@@ -39,44 +39,46 @@ function MailIcon() {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 sm:py-28 border-t border-border/40">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="contact" className="py-20 sm:py-28 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
+          className="apple-glass-card p-8 sm:p-14 rounded-3xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-alt border border-border text-xs font-mono text-muted mb-4">
+          {/* Apple Frosted Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md border border-black/5 dark:border-white/10 text-xs font-mono text-muted mb-4 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span>Open to Opportunities</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Let&apos;s Connect &amp; Build Together
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted max-w-xl mx-auto leading-relaxed">
-            I am actively exploring roles in <span className="text-foreground font-medium">Data Analytics</span>, <span className="text-foreground font-medium">Business Analysis</span>, <span className="text-foreground font-medium">Product Analytics</span>, and <span className="text-foreground font-medium">BI / MIS</span>.
+            I am actively exploring roles in <span className="text-foreground font-semibold">Data Analytics</span>, <span className="text-foreground font-semibold">Business Analysis</span>, <span className="text-foreground font-semibold">Product Analytics</span>, and <span className="text-foreground font-semibold">BI / MIS</span>.
           </p>
 
-          {/* Primary Email CTA */}
+          {/* Primary Email CTA Pill */}
           <div className="mt-8 flex justify-center">
             <a
               href={`mailto:${PERSONAL.email}`}
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-accent text-white rounded-xl font-medium text-base hover:bg-accent-light transition-colors shadow-sm"
+              className="apple-pill-btn px-7 py-3.5 bg-accent text-white rounded-full font-medium text-base hover:bg-accent-light shadow-[0_4px_24px_rgba(0,113,227,0.35)] hover:shadow-[0_8px_32px_rgba(0,113,227,0.5)]"
             >
               <MailIcon />
               {PERSONAL.email}
             </a>
           </div>
 
-          {/* Social & Resume Links */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          {/* Frosted Social & Resume Pills */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href={PERSONAL.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-surface border border-border rounded-lg text-foreground hover:border-accent/40 hover:bg-surface-alt transition-colors"
+              className="apple-pill-btn px-5 py-2.5 text-sm bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md border border-black/10 dark:border-white/15 rounded-full text-foreground hover:border-accent/40 hover:bg-white dark:hover:bg-zinc-700 shadow-xs"
             >
               <LinkedInIcon />
               <span>LinkedIn</span>
@@ -86,7 +88,7 @@ export default function Contact() {
               href={PERSONAL.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-surface border border-border rounded-lg text-foreground hover:border-accent/40 hover:bg-surface-alt transition-colors"
+              className="apple-pill-btn px-5 py-2.5 text-sm bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md border border-black/10 dark:border-white/15 rounded-full text-foreground hover:border-accent/40 hover:bg-white dark:hover:bg-zinc-700 shadow-xs"
             >
               <GitHubIcon />
               <span>GitHub</span>
@@ -96,7 +98,7 @@ export default function Contact() {
               href={PERSONAL.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-surface border border-border rounded-lg text-foreground hover:border-accent/40 hover:bg-surface-alt transition-colors"
+              className="apple-pill-btn px-5 py-2.5 text-sm bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md border border-black/10 dark:border-white/15 rounded-full text-foreground hover:border-accent/40 hover:bg-white dark:hover:bg-zinc-700 shadow-xs"
             >
               <span>View Resume ↗</span>
             </a>

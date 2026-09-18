@@ -62,18 +62,18 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden"
+      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden"
     >
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
+      {/* Subtle grid backdrop */}
+      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Positioning tag */}
+        {/* Apple Frosted Glass Positioning Tag */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-surface text-xs font-mono text-muted shadow-sm mb-6"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/15 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl text-xs font-mono text-muted shadow-sm mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>IIT Bombay &apos;25 · Business Analyst · Bangalore</span>
@@ -89,7 +89,7 @@ export default function Hero() {
           {PERSONAL.name}
         </motion.h1>
 
-        {/* Primary Role Subtitle */}
+        {/* Role Subtitle with Apple Vibrancy */}
         <motion.div
           className="mt-4 text-lg sm:text-2xl font-semibold text-accent"
           initial={{ opacity: 0, y: 15 }}
@@ -109,82 +109,82 @@ export default function Hero() {
           {PERSONAL.tagline}
         </motion.p>
 
-        {/* 4 Clear CTA Buttons */}
+        {/* 4 Apple Glass Pill CTA Buttons */}
         <motion.div
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          className="mt-10 flex flex-wrap items-center justify-center gap-3.5"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.25 }}
         >
-          {/* View Resume - Primary */}
+          {/* View Resume - Primary Apple Pill */}
           <a
             href={PERSONAL.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent-light transition-colors shadow-sm"
+            className="apple-pill-btn px-6 py-3 bg-accent text-white rounded-full font-medium text-sm hover:bg-accent-light shadow-[0_4px_20px_rgba(0,113,227,0.3)] hover:shadow-[0_6px_28px_rgba(0,113,227,0.45)]"
           >
             <DocumentIcon />
             View Resume
           </a>
 
-          {/* LinkedIn */}
+          {/* LinkedIn Glass Pill */}
           <a
             href={PERSONAL.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-surface border border-border text-foreground rounded-lg font-medium text-sm hover:border-accent/40 hover:bg-surface-alt transition-colors"
+            className="apple-pill-btn px-5 py-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-black/10 dark:border-white/15 text-foreground rounded-full font-medium text-sm hover:bg-white dark:hover:bg-zinc-800 hover:border-accent/40 shadow-sm"
           >
             <LinkedInIcon />
             LinkedIn
           </a>
 
-          {/* GitHub */}
+          {/* GitHub Glass Pill */}
           <a
             href={PERSONAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-surface border border-border text-foreground rounded-lg font-medium text-sm hover:border-accent/40 hover:bg-surface-alt transition-colors"
+            className="apple-pill-btn px-5 py-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-black/10 dark:border-white/15 text-foreground rounded-full font-medium text-sm hover:bg-white dark:hover:bg-zinc-800 hover:border-accent/40 shadow-sm"
           >
             <GitHubIcon />
             GitHub
           </a>
 
-          {/* Contact Me */}
+          {/* Contact Me Glass Pill */}
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-surface border border-border text-foreground rounded-lg font-medium text-sm hover:border-accent/40 hover:bg-surface-alt transition-colors"
+            className="apple-pill-btn px-5 py-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-black/10 dark:border-white/15 text-foreground rounded-full font-medium text-sm hover:bg-white dark:hover:bg-zinc-800 hover:border-accent/40 shadow-sm"
           >
             <MailIcon />
             Contact Me
           </a>
         </motion.div>
 
-        {/* Recruiter Quick Fact Anchors */}
+        {/* Recruiter Quick Fact Anchors (Apple Frosted Glass Cards) */}
         <motion.div
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left"
+          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-3xl mx-auto text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
         >
-          <div className="p-3.5 rounded-lg border border-border bg-surface/80">
+          <div className="apple-glass-card p-4 rounded-2xl">
             <span className="block font-mono text-xs text-accent">Education</span>
             <span className="block font-medium text-sm text-foreground mt-0.5">IIT Bombay</span>
             <span className="block text-xs text-muted">B.Tech (2021–2025)</span>
           </div>
 
-          <div className="p-3.5 rounded-lg border border-border bg-surface/80">
+          <div className="apple-glass-card p-4 rounded-2xl">
             <span className="block font-mono text-xs text-accent">Current Role</span>
             <span className="block font-medium text-sm text-foreground mt-0.5">Business Analyst</span>
             <span className="block text-xs text-muted">Emoha Elder Care</span>
           </div>
 
-          <div className="p-3.5 rounded-lg border border-border bg-surface/80">
+          <div className="apple-glass-card p-4 rounded-2xl">
             <span className="block font-mono text-xs text-accent">Core Stack</span>
             <span className="block font-medium text-sm text-foreground mt-0.5">SQL &amp; Power BI</span>
             <span className="block text-xs text-muted">Excel, Python, Zoho</span>
           </div>
 
-          <div className="p-3.5 rounded-lg border border-border bg-surface/80">
+          <div className="apple-glass-card p-4 rounded-2xl">
             <span className="block font-mono text-xs text-accent">Specialization</span>
             <span className="block font-medium text-sm text-foreground mt-0.5">LTV &amp; MIS Dashboards</span>
             <span className="block text-xs text-muted">Reporting Automation</span>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Leadership() {
   return (
-    <section id="leadership" className="py-20 sm:py-28 border-t border-border/40">
+    <section id="leadership" className="py-20 sm:py-28 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,12 +13,13 @@ export default function Leadership() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center gap-2 mb-2">
+          {/* Apple Frosted Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/15 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md mb-3">
             <span className="w-2 h-2 rounded-full bg-accent" />
             <span className="font-mono text-xs text-accent uppercase tracking-wider">Leadership &amp; Initiative</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Campus Leadership &amp; Stakeholder Management
           </h2>
           <p className="mt-3 max-w-2xl text-muted text-base sm:text-lg">
@@ -30,18 +31,18 @@ export default function Leadership() {
           {LEADERSHIP_ROLES.map((role, i) => (
             <motion.div
               key={role.title}
-              className="p-6 sm:p-8 rounded-xl border border-border bg-surface shadow-sm hover:border-accent/30 transition-colors"
+              className="apple-glass-card p-6 sm:p-8 rounded-3xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6 pb-4 border-b border-border/60">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6 pb-4 border-b border-border/50">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">{role.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground tracking-tight">{role.title}</h3>
                   <p className="text-accent font-semibold text-sm">{role.org}</p>
                 </div>
-                <span className="font-mono text-xs text-muted px-2.5 py-1 rounded bg-surface-alt border border-border self-start">
+                <span className="font-mono text-xs text-muted px-3 py-1 rounded-full bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md border border-black/5 dark:border-white/10 self-start">
                   {role.period}
                 </span>
               </div>
@@ -51,7 +52,7 @@ export default function Leadership() {
                 {role.metrics.map((m) => (
                   <div
                     key={m.label}
-                    className="text-center p-3 rounded-lg bg-surface-alt/70 border border-border"
+                    className="text-center p-3.5 rounded-2xl bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md border border-black/5 dark:border-white/10"
                   >
                     <div className="text-lg font-bold font-mono text-foreground">
                       {m.value}
@@ -61,7 +62,7 @@ export default function Leadership() {
                 ))}
               </div>
 
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {role.bullets.map((bullet, idx) => (
                   <li
                     key={idx}

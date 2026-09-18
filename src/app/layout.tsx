@@ -66,7 +66,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col relative">
+        <div className="apple-mesh-bg" aria-hidden="true" />
+        <div className="relative z-10 flex flex-col flex-1">{children}</div>
+      </body>
     </html>
   );
 }
