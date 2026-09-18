@@ -13,24 +13,24 @@ export default function About() {
           transition={{ duration: 0.5 }}
         >
           {/* Apple Frosted Section Pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/15 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md mb-3">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="font-mono text-xs text-accent uppercase tracking-wider">About Me</span>
+            <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">About Me</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Bridging Business Context &amp; Analytical Execution
           </h2>
 
-          <div className="mt-8 space-y-5 text-muted text-base sm:text-lg leading-relaxed">
+          <div className="mt-8 space-y-5 text-zinc-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
             <p>
-              I am an <span className="text-foreground font-semibold">IIT Bombay graduate</span> currently working as a <span className="text-foreground font-semibold">Business Analyst</span> in Bangalore. My core work revolves around analyzing complex business data, building interactive dashboards, and automating operational reporting.
+              I am an <span className="text-zinc-950 dark:text-zinc-50 font-semibold">IIT Bombay graduate</span> currently working as a <span className="text-zinc-950 dark:text-zinc-50 font-semibold">Business Analyst</span> in Bangalore. My core work revolves around analyzing complex business data, building interactive dashboards, and automating operational reporting.
             </p>
             <p>
               In my day-to-day role, I go beyond merely reporting numbers. I explore data across customer funnels, marketing channels, and business units to find patterns, diagnose underlying issues, and deliver conclusions that lead to tangible improvements in business processes and sales workflows.
             </p>
             <p>
-              To keep operations agile, I actively leverage <span className="text-foreground font-semibold">AI tools and automation</span> (Copilot, ChatGPT, and Python scripts) to streamline repetitive reporting, consolidate multi-workbook Excel spreadsheets, and speed up data wrangling — freeing up time for deeper analytical problem-solving.
+              To keep operations agile, I actively leverage <span className="text-zinc-950 dark:text-zinc-50 font-semibold">AI tools and automation</span> (Copilot, ChatGPT, and Python scripts) to streamline repetitive reporting, consolidate multi-workbook Excel spreadsheets, and speed up data wrangling — freeing up time for deeper analytical problem-solving.
             </p>
             <p>
               With a strong grounding in both analytical tools (SQL, Excel, Power BI, Zoho Analytics) and software engineering foundations (Python, Java, C++, APIs, and DSA), I build practical, reliable solutions that connect business questions with measurable outcomes.
@@ -39,34 +39,34 @@ export default function About() {
 
           {/* 4 Apple Bento Frosted Glass Cards */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="apple-glass-card p-6 rounded-2xl">
+            <div className="apple-glass-card p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
               <div className="text-2xl mb-3">📊</div>
-              <h3 className="font-semibold text-foreground text-base">Business &amp; Data Analysis</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
+              <h3 className="font-bold text-zinc-900 dark:text-zinc-100 text-base">Business &amp; Data Analysis</h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Sales funnels, revenue metrics, Customer Lifetime Value (LTV), and cohort retention — using data to guide real operational decisions.
               </p>
             </div>
 
-            <div className="apple-glass-card p-6 rounded-2xl">
+            <div className="apple-glass-card p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
               <div className="text-2xl mb-3">⚡</div>
-              <h3 className="font-semibold text-foreground text-base">Dashboard &amp; MIS Automation</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
+              <h3 className="font-bold text-zinc-900 dark:text-zinc-100 text-base">Dashboard &amp; MIS Automation</h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Automating recurring reports and building live executive dashboards in Power BI, Zoho Analytics, and Excel to monitor key KPIs.
               </p>
             </div>
 
-            <div className="apple-glass-card p-6 rounded-2xl">
+            <div className="apple-glass-card p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
               <div className="text-2xl mb-3">🤖</div>
-              <h3 className="font-semibold text-foreground text-base">AI-Assisted Productivity</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
+              <h3 className="font-bold text-zinc-900 dark:text-zinc-100 text-base">AI-Assisted Productivity</h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Integrating AI tools for rapid data harmonization, SQL query structuring, and workflow automation to accelerate analytical output.
               </p>
             </div>
 
-            <div className="apple-glass-card p-6 rounded-2xl">
+            <div className="apple-glass-card p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
               <div className="text-2xl mb-3">⚙️</div>
-              <h3 className="font-semibold text-foreground text-base">Technical Foundation</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
+              <h3 className="font-bold text-zinc-900 dark:text-zinc-100 text-base">Technical Foundation</h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Solid programming and systems background from IIT Bombay — Python, Java, C++, REST APIs, databases, and 300+ DSA problems solved.
               </p>
             </div>

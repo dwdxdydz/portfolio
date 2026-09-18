@@ -14,15 +14,15 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
         >
           {/* Apple Frosted Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/15 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md mb-3">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="font-mono text-xs text-accent uppercase tracking-wider">Career Experience</span>
+            <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">Career Experience</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Professional Experience
           </h2>
-          <p className="mt-3 max-w-2xl text-muted text-base sm:text-lg">
+          <p className="mt-3 max-w-2xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
             Delivering data-driven insights, automated reporting, and operational efficiency across business teams.
           </p>
         </motion.div>
@@ -31,42 +31,42 @@ export default function Experience() {
           {EXPERIENCES.map((exp, i) => (
             <motion.div
               key={exp.company + exp.role}
-              className="apple-glass-card p-6 sm:p-8 rounded-3xl"
+              className="apple-glass-card p-6 sm:p-8 rounded-3xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 pb-6 border-b border-border/50">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">{exp.role}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">{exp.role}</h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-accent font-semibold">{exp.company}</span>
-                    <span className="text-muted/60">·</span>
-                    <span className="text-muted text-sm">{exp.location}</span>
+                    <span className="text-accent font-bold">{exp.company}</span>
+                    <span className="text-zinc-400">·</span>
+                    <span className="text-zinc-600 dark:text-zinc-400 text-sm font-medium">{exp.location}</span>
                   </div>
                 </div>
 
-                <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md border border-black/5 dark:border-white/10 text-xs font-mono text-foreground shrink-0 self-start shadow-xs">
+                <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 text-xs font-mono font-bold text-zinc-900 dark:text-zinc-100 shrink-0 self-start shadow-2xs">
                   {exp.period}
                 </div>
               </div>
 
               <ul className="mt-6 space-y-3.5">
                 {exp.bullets.map((bullet, j) => (
-                  <li key={j} className="flex gap-3 text-muted text-sm sm:text-base leading-relaxed">
+                  <li key={j} className="flex gap-3 text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
                     <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 pt-6 border-t border-border/50 flex flex-wrap items-center gap-2">
-                <span className="text-xs font-mono text-muted mr-1">Tools:</span>
+              <div className="mt-6 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap items-center gap-2">
+                <span className="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 mr-1">Tools:</span>
                 {exp.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 text-xs font-mono bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md text-foreground rounded-full border border-black/5 dark:border-white/10"
+                    className="px-3 py-1 text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-full border border-zinc-300/80 dark:border-zinc-700/80 shadow-2xs"
                   >
                     {t}
                   </span>

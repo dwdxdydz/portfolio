@@ -65,7 +65,7 @@ export default function Hero() {
       className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden"
     >
       {/* Subtle grid backdrop */}
-      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Apple Frosted Glass Positioning Tag */}
@@ -73,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/15 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl text-xs font-mono text-muted shadow-sm mb-6"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl text-xs font-mono font-medium text-zinc-800 dark:text-zinc-200 shadow-sm mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>IIT Bombay &apos;25 · Business Analyst · Bangalore</span>
@@ -81,7 +81,7 @@ export default function Hero() {
 
         {/* Name */}
         <motion.h1
-          className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground"
+          className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
@@ -89,9 +89,9 @@ export default function Hero() {
           {PERSONAL.name}
         </motion.h1>
 
-        {/* Role Subtitle with Apple Vibrancy */}
+        {/* Role Subtitle */}
         <motion.div
-          className="mt-4 text-lg sm:text-2xl font-semibold text-accent"
+          className="mt-4 text-lg sm:text-2xl font-bold text-accent"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.15 }}
@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Supporting Line */}
         <motion.p
-          className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-muted leading-relaxed"
+          className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -109,7 +109,7 @@ export default function Hero() {
           {PERSONAL.tagline}
         </motion.p>
 
-        {/* 4 Apple Glass Pill CTA Buttons */}
+        {/* 4 Apple Pill CTA Buttons */}
         <motion.div
           className="mt-10 flex flex-wrap items-center justify-center gap-3.5"
           initial={{ opacity: 0, y: 15 }}
@@ -121,7 +121,7 @@ export default function Hero() {
             href={PERSONAL.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pill-btn px-6 py-3 bg-accent text-white rounded-full font-medium text-sm hover:bg-accent-light shadow-[0_4px_20px_rgba(0,113,227,0.3)] hover:shadow-[0_6px_28px_rgba(0,113,227,0.45)]"
+            className="apple-pill-btn px-6 py-3 bg-accent text-white rounded-full font-medium text-sm hover:bg-accent-light shadow-[0_4px_20px_rgba(0,102,204,0.3)] hover:shadow-[0_6px_28px_rgba(0,102,204,0.45)]"
           >
             <DocumentIcon />
             View Resume
@@ -132,7 +132,7 @@ export default function Hero() {
             href={PERSONAL.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pill-btn px-5 py-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-black/10 dark:border-white/15 text-foreground rounded-full font-medium text-sm hover:bg-white dark:hover:bg-zinc-800 hover:border-accent/40 shadow-sm"
+            className="apple-pill-btn px-5 py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs"
           >
             <LinkedInIcon />
             LinkedIn
@@ -143,7 +143,7 @@ export default function Hero() {
             href={PERSONAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-pill-btn px-5 py-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-black/10 dark:border-white/15 text-foreground rounded-full font-medium text-sm hover:bg-white dark:hover:bg-zinc-800 hover:border-accent/40 shadow-sm"
+            className="apple-pill-btn px-5 py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs"
           >
             <GitHubIcon />
             GitHub
@@ -152,42 +152,42 @@ export default function Hero() {
           {/* Contact Me Glass Pill */}
           <a
             href="#contact"
-            className="apple-pill-btn px-5 py-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-black/10 dark:border-white/15 text-foreground rounded-full font-medium text-sm hover:bg-white dark:hover:bg-zinc-800 hover:border-accent/40 shadow-sm"
+            className="apple-pill-btn px-5 py-3 bg-white dark:bg-zinc-900 backdrop-blur-xl border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-full font-medium text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-accent shadow-xs"
           >
             <MailIcon />
             Contact Me
           </a>
         </motion.div>
 
-        {/* Recruiter Quick Fact Anchors (Apple Frosted Glass Cards) */}
+        {/* Recruiter Quick Fact Anchors */}
         <motion.div
           className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-3xl mx-auto text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
         >
-          <div className="apple-glass-card p-4 rounded-2xl">
-            <span className="block font-mono text-xs text-accent">Education</span>
-            <span className="block font-medium text-sm text-foreground mt-0.5">IIT Bombay</span>
-            <span className="block text-xs text-muted">B.Tech (2021–2025)</span>
+          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Education</span>
+            <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">IIT Bombay</span>
+            <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">B.Tech (2021–2025)</span>
           </div>
 
-          <div className="apple-glass-card p-4 rounded-2xl">
-            <span className="block font-mono text-xs text-accent">Current Role</span>
-            <span className="block font-medium text-sm text-foreground mt-0.5">Business Analyst</span>
-            <span className="block text-xs text-muted">Emoha Elder Care</span>
+          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Current Role</span>
+            <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">Business Analyst</span>
+            <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">Emoha Elder Care</span>
           </div>
 
-          <div className="apple-glass-card p-4 rounded-2xl">
-            <span className="block font-mono text-xs text-accent">Core Stack</span>
-            <span className="block font-medium text-sm text-foreground mt-0.5">SQL &amp; Power BI</span>
-            <span className="block text-xs text-muted">Excel, Python, Zoho</span>
+          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Core Stack</span>
+            <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">SQL &amp; Power BI</span>
+            <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">Excel, Python, Zoho</span>
           </div>
 
-          <div className="apple-glass-card p-4 rounded-2xl">
-            <span className="block font-mono text-xs text-accent">Specialization</span>
-            <span className="block font-medium text-sm text-foreground mt-0.5">LTV &amp; MIS Dashboards</span>
-            <span className="block text-xs text-muted">Reporting Automation</span>
+          <div className="apple-glass-card p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <span className="block font-mono text-xs font-semibold text-accent uppercase tracking-wider">Specialization</span>
+            <span className="block font-bold text-sm text-zinc-900 dark:text-zinc-100 mt-0.5">LTV &amp; MIS Dashboards</span>
+            <span className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">Reporting Automation</span>
           </div>
         </motion.div>
       </div>

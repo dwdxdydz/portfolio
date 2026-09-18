@@ -30,8 +30,8 @@ export default function Navbar() {
       <nav
         className={`pointer-events-auto w-full max-w-5xl rounded-full transition-all duration-300 ${
           scrolled
-            ? "bg-white/80 dark:bg-zinc-900/75 backdrop-blur-2xl border border-black/10 dark:border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
-            : "bg-white/65 dark:bg-zinc-900/60 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
+            ? "bg-white/95 dark:bg-zinc-900/90 backdrop-blur-2xl border border-zinc-300/80 dark:border-zinc-700/80 shadow-[0_12px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+            : "bg-white/90 dark:bg-zinc-900/85 backdrop-blur-xl border border-zinc-200/90 dark:border-zinc-800/90 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -46,8 +46,8 @@ export default function Navbar() {
               <span className="font-bold text-accent text-base sm:text-lg tracking-tight">
                 Ajit
               </span>
-              <span className="text-border">|</span>
-              <span className="hidden sm:inline text-xs font-mono text-muted group-hover:text-foreground transition-colors">
+              <span className="text-zinc-300 dark:text-zinc-700">|</span>
+              <span className="hidden sm:inline text-xs font-mono font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-foreground transition-colors">
                 Data &amp; Business Analyst
               </span>
             </a>
@@ -58,7 +58,7 @@ export default function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="px-3.5 py-1.5 text-xs sm:text-sm font-medium text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200"
+                  className="px-3.5 py-1.5 text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-200"
                 >
                   {item.label}
                 </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
                 href={PERSONAL.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 inline-flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-medium bg-accent text-white rounded-full hover:bg-accent-light transition-all shadow-[0_2px_12px_rgba(0,113,227,0.3)] hover:shadow-[0_4px_16px_rgba(0,113,227,0.4)] active:scale-95"
+                className="ml-2 inline-flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-medium bg-accent text-white rounded-full hover:bg-accent-light transition-all shadow-[0_2px_12px_rgba(0,102,204,0.35)] hover:shadow-[0_4px_16px_rgba(0,102,204,0.45)] active:scale-95"
               >
                 Resume ↗
               </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors"
+              className="lg:hidden p-2 text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -116,7 +116,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden px-4 pb-5 pt-2 border-t border-border/60 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl rounded-b-3xl"
+              className="lg:hidden px-4 pb-5 pt-2 border-t border-zinc-200/80 dark:border-zinc-800/80 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-2xl rounded-b-3xl"
             >
               <div className="space-y-1">
                 {NAV_ITEMS.map((item) => (
@@ -124,17 +124,17 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-3.5 py-2 text-sm font-medium text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition-colors"
+                    className="block px-3.5 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 rounded-xl transition-colors"
                   >
                     {item.label}
                   </a>
                 ))}
-                <div className="pt-3 border-t border-border/60">
+                <div className="pt-3 border-t border-zinc-200/80 dark:border-zinc-800/80">
                   <a
                     href={PERSONAL.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center px-4 py-2.5 text-sm font-medium bg-accent text-white rounded-full shadow-[0_2px_12px_rgba(0,113,227,0.3)] active:scale-98"
+                    className="block text-center px-4 py-2.5 text-sm font-medium bg-accent text-white rounded-full shadow-[0_2px_12px_rgba(0,102,204,0.35)] active:scale-98"
                   >
                     View / Download Resume ↗
                   </a>

@@ -14,27 +14,27 @@ export default function AISection() {
           transition={{ duration: 0.5 }}
         >
           {/* Apple Frosted Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/15 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md mb-3">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="font-mono text-xs text-accent uppercase tracking-wider">
+            <span className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">
               Productivity &amp; Automation
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             Practical AI &amp; Workflow Automation
           </h2>
-          <p className="mt-3 max-w-3xl text-muted text-base sm:text-lg leading-relaxed">
+          <p className="mt-3 max-w-3xl text-zinc-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
             I leverage AI as a force multiplier for productivity — eliminating repetitive manual reporting, cleaning messy spreadsheets, and accelerating analysis without replacing rigorous critical thinking.
           </p>
         </motion.div>
 
-        {/* AI Use Cases Grid (Apple Glass Cards) */}
+        {/* AI Use Cases Grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {AI_AUTOMATION_PRACTICES.map((item, i) => (
             <motion.div
               key={item.title}
-              className="apple-glass-card p-6 rounded-2xl flex flex-col justify-between group"
+              className="apple-glass-card p-6 rounded-2xl bg-white/95 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-xs flex flex-col justify-between group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -42,27 +42,27 @@ export default function AISection() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl p-3 rounded-2xl bg-white/70 dark:bg-zinc-800/70 border border-black/5 dark:border-white/10 backdrop-blur-md shadow-xs">
+                  <span className="text-2xl p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-2xs">
                     {item.icon}
                   </span>
-                  <span className="font-mono text-xs text-accent font-medium">
+                  <span className="font-mono text-xs font-semibold text-accent">
                     {item.category}
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-2 group-hover:text-accent transition-colors tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted leading-relaxed mb-5">
+                <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-border/50 flex flex-wrap gap-1.5">
+              <div className="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap gap-1.5">
                 {item.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="px-2.5 py-0.5 text-xs font-mono bg-white/60 dark:bg-zinc-800/60 text-muted rounded-full border border-black/5 dark:border-white/10"
+                    className="px-2.5 py-0.5 text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-full border border-zinc-300/80 dark:border-zinc-700/80 shadow-2xs"
                   >
                     {tool}
                   </span>
