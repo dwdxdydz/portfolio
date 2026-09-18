@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
       <nav
-        className={`pointer-events-auto w-full max-w-5xl xl:max-w-[1060px] rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto w-auto max-w-fit rounded-full transition-all duration-300 ${
           scrolled
             ? "bg-white/95 dark:bg-zinc-900/90 backdrop-blur-2xl border border-zinc-300/80 dark:border-zinc-700/80 shadow-[0_12px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
             : "bg-white/90 dark:bg-zinc-900/85 backdrop-blur-xl border border-zinc-200/90 dark:border-zinc-800/90 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
@@ -37,53 +37,49 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="px-5 sm:px-7 lg:px-8">
+        <div className="px-5 sm:px-6 lg:px-7">
           <div className="flex items-center justify-between h-14">
-            {/* 1. Left Group: Brand ("Ajit") + Desktop Navigation with clean, balanced gap */}
-            <div className="flex items-center">
-              <a
-                href="#home"
-                className="flex items-center font-bold text-accent text-lg sm:text-xl tracking-tight hover:opacity-85 transition-opacity shrink-0 mr-3 lg:mr-4 xl:mr-5"
-                aria-label="Ajit - Home"
-              >
-                Ajit
-              </a>
+            {/* 1. Navbar Brand: ONLY "Ajit" with distinct, intentional gap */}
+            <a
+              href="#home"
+              className="flex items-center font-bold text-accent text-lg sm:text-xl tracking-tight hover:opacity-85 transition-opacity shrink-0 mr-6 lg:mr-8 xl:mr-10"
+              aria-label="Ajit - Home"
+            >
+              Ajit
+            </a>
 
-              {/* Desktop Navigation with Enhanced Frosted Hover Bubble */}
-              <div
-                className="hidden lg:flex items-center gap-0.5 xl:gap-1"
-                onMouseLeave={() => setHoveredNav(null)}
-              >
-                {NAV_ITEMS.map((item) => {
-                  const isHovered = hoveredNav === item.href;
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onMouseEnter={() => setHoveredNav(item.href)}
-                      className="relative inline-flex items-center justify-center h-9 px-2.5 lg:px-2.5 xl:px-3 text-[11.5px] lg:text-xs xl:text-[13px] font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 rounded-full transition-colors whitespace-nowrap"
-                    >
-                      {isHovered && (
-                        <motion.div
-                          layoutId="navbar-hover-bubble"
-                          className="absolute inset-0 rounded-full bg-black/[0.09] dark:bg-white/[0.15] backdrop-blur-2xl border border-black/[0.06] dark:border-white/[0.12] shadow-[0_2px_10px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.06)] pointer-events-none"
-                          transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                        />
-                      )}
-                      <span className="relative z-10">{item.label}</span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+            {/* 2. Desktop Navigation with Enhanced Frosted Hover Bubble */}
+            <div
+              className="hidden lg:flex items-center gap-0.5 xl:gap-1"
+              onMouseLeave={() => setHoveredNav(null)}
+            >
+              {NAV_ITEMS.map((item) => {
+                const isHovered = hoveredNav === item.href;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onMouseEnter={() => setHoveredNav(item.href)}
+                    className="relative inline-flex items-center justify-center h-9 px-2.5 lg:px-2.5 xl:px-3 text-[11.5px] lg:text-xs xl:text-[13px] font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 rounded-full transition-colors whitespace-nowrap"
+                  >
+                    {isHovered && (
+                      <motion.div
+                        layoutId="navbar-hover-bubble"
+                        className="absolute inset-0 rounded-full bg-black/[0.09] dark:bg-white/[0.15] backdrop-blur-2xl border border-black/[0.06] dark:border-white/[0.12] shadow-[0_2px_10px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.06)] pointer-events-none"
+                        transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.label}</span>
+                  </a>
+                );
+              })}
 
-            {/* 2. Right: Resume Button - PERMANENT BLUE PILL cleanly enclosed */}
-            <div className="hidden lg:flex items-center">
+              {/* 3. Resume Button: PERMANENT BLUE PILL completely enclosed */}
               <a
                 href={PERSONAL.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 h-9 px-4 xl:px-4.5 text-[11.5px] lg:text-xs xl:text-[13px] font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,113,227,0.35)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,113,227,0.48)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap shrink-0 will-change-transform"
+                className="ml-2 lg:ml-2.5 xl:ml-3.5 inline-flex items-center justify-center gap-1.5 h-9 px-4 xl:px-4.5 text-[11.5px] lg:text-xs xl:text-[13px] font-semibold bg-accent text-white rounded-full shadow-[0_2px_10px_rgba(0,113,227,0.35)] hover:scale-[1.04] hover:shadow-[0_4px_16px_rgba(0,113,227,0.48)] active:scale-[0.98] transition-all duration-200 ease-out whitespace-nowrap shrink-0 will-change-transform"
               >
                 <span>Resume</span>
                 <span className="text-[11px] font-bold leading-none shrink-0">↗</span>
