@@ -563,5 +563,5 @@ export const ACHIEVEMENTS: Achievement[] = [
   { value: "98.03 %ile", label: "JEE Mains", detail: "Top 2% Nationwide" },
   { value: "95.3 %ile", label: "JEE Advanced", detail: "Top Engineering Entrance" },
   { value: "300+", label: "DSA Solved", detail: "Algorithmic Problems" },
-  { value: "Excellence", label: "Research Award", detail: "NCAIR, IIT Bombay" },
+  { value: "Excellence", label: "Research Award", detail: "NCAIR" },
 ];
