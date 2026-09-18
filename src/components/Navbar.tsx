@@ -42,7 +42,7 @@ export default function Navbar() {
             href="#home"
             className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium text-sm sm:text-base"
           >
-            <span className="font-mono text-accent font-bold">APS</span>
+            <span className="font-mono text-accent font-bold">ajit.</span>
             <span className="text-border">|</span>
             <span className="hidden sm:inline text-xs font-mono text-muted">Data &amp; Business Analyst</span>
           </a>
