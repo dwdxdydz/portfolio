@@ -5,6 +5,7 @@ import Experience from "@/components/Experience";
 import FeaturedCaseStudy from "@/components/FeaturedCaseStudy";
 import Skills from "@/components/Skills";
 import AISection from "@/components/AISection";
+import LatestNews from "@/components/LatestNews";
 import Projects from "@/components/Projects";
 import CareerTimeline from "@/components/CareerTimeline";
 import Leadership from "@/components/Leadership";
@@ -23,6 +24,7 @@ export default function Home() {
         <FeaturedCaseStudy />
         <Skills />
         <AISection />
+        <LatestNews />
         <Projects />
         <CareerTimeline />
         <Leadership />
