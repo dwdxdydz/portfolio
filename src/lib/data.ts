@@ -18,6 +18,7 @@ export const NAV_ITEMS = [
   { label: "LTV Case Study", href: "#case-study" },
   { label: "Skills", href: "#skills" },
   { label: "AI & Automation", href: "#ai-automation" },
+  { label: "Latest News", href: "#latest-news" },
   { label: "Projects", href: "#projects" },
   { label: "Leadership", href: "#leadership" },
   { label: "Contact", href: "#contact" },
